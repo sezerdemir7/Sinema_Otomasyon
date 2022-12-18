@@ -1,4 +1,4 @@
-package HumanInfo;
+package Entity;
 
 
 public class yoneticiInfo extends Human{

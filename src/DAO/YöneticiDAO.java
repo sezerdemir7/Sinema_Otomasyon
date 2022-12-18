@@ -1,9 +1,9 @@
 package DAO;
 
 import java.io.*;
-import HumanInfo.yoneticiInfo;
+import Entity.yoneticiInfo;
 
-public class YöneticiDAO {
+public class YöneticiDAO implements DAO_Interface<yoneticiInfo>{
 
 //    private File f;
 //    private FileReader fr;
@@ -24,40 +24,53 @@ public class YöneticiDAO {
         s1.save(ynt.toString(), "yönetici.txt");
 
     }
+  @Override
+    public void ekle(yoneticiInfo entity) {
+        
+    }
 
+    @Override
+    public void sil(yoneticiInfo entity) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public boolean dogrulama(String ad, String soyad, String sifre, String tlfon) throws IOException {
         boolean a, b, c, d;
         int syc1 = 0, syc2 = 0, syc3 = 0, syc4 = 0;
         
-//        if(ad==null||soyad==null||sifre==null||tlfon==null){
-//            return false;
-//        }
-//        
         
-        String str1, str2, str3, str4;
-        while ((str1 = br.readLine()) != null) {
-            a = str1.contains(ad);
-
-            if (a == true) {
-                syc1++;
-            }
-            b = str1.contains(soyad);
-
-            if (b == true) {
-                syc2++;
-            }
-            c = str1.contains(sifre);
-
-            if (c == true) {
-                syc3++;
-            }
-            d = str1.contains(tlfon);
-
-            if (d == true) {
-                syc4++;
+        if(ad!=null&&soyad!=null&&sifre!=null&&tlfon!=null){
+            String str1;
+            while ((str1 = br.readLine()) != null) {
+                a = str1.contains(ad);
+                
+                if (a == true) {
+                    syc1++;
+                }
+                b = str1.contains(soyad);
+                
+                if (b == true) {
+                    syc2++;
+                }
+                c = str1.contains(sifre);
+                
+                if (c == true) {
+                    syc3++;
+                }
+                d = str1.contains(tlfon);
+                
+                if (d == true) {
+                    syc4++;
+                }
+                
             }
 
         }
+        else{
+            
+            return false;
+        }
+        
+        
 
         if (syc1 == 1 && syc2 == 1 && syc3 == 1 && syc4 == 1) {
             return true;
@@ -138,4 +151,6 @@ public class YöneticiDAO {
 //    public void setBw(BufferedWriter bw) {
 //        this.bw = bw;
 //    }
+
+  
 }

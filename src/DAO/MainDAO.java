@@ -8,6 +8,14 @@ public abstract class MainDAO {
 
  public abstract void kaydet();
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 //    public String getDosya() {
 //        return dosya;
 //    }

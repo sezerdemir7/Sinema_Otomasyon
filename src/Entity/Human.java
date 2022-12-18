@@ -1,5 +1,5 @@
 
-package HumanInfo;
+package Entity;
 
 
 public abstract class Human {
@@ -33,7 +33,7 @@ public abstract class Human {
 
     @Override
     public String toString() {
-        return "Human{" + "ad=" + ad + ", soyad=" + soyad + ", tlfon=" + tlfon + '}';
+        return   ad +  " " + soyad + " " + tlfon ;
     }
 
     
