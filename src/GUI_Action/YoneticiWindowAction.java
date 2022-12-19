@@ -40,7 +40,7 @@ public class YoneticiWindowAction implements ActionListener {
                 if (bl == true) {
 
                     panel = new YöneticiProcessWindow();
-                    System.exit(0);
+                    
                     mw.getWindow().setContentPane(panel.getPanel());
 
                     mw.getWindow().repaint();

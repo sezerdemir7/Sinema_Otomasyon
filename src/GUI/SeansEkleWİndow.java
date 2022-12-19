@@ -8,10 +8,10 @@ import javax.swing.*;
 
 public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
-private JComboBox day,month,year;
+private JComboBox day,month,year,cbsaat;
 private Font fn,fn2;
 
-private JLabel lSaat,tarih,salon,film,baslık;
+private JLabel lSaat,tarih,salon,film,baslık,saat;
 private JButton filmSec,kaydet,geri;
 
 
@@ -29,7 +29,9 @@ private JButton filmSec,kaydet,geri;
             this.panel.add(this.getSalon());
             this.panel.add(this.getFilm());
             this.panel.add(this.getBaslık());
-            
+            this.panel.add(this.getCbsaat());
+            this.panel.add(this.getSaat());
+            this.panel.add(this.getKaydet());
             
             this.panel.setLayout(null);
             this.panel.setVisible(true);
@@ -47,7 +49,7 @@ private JButton filmSec,kaydet,geri;
     public JLabel getSalon() {
         if(this.salon==null){
             salon=new JLabel("Salon Seç:");
-            this.salon.setBounds(35, 210, 150, 35);
+            this.salon.setBounds(35, 260, 150, 35);
             this.salon.setFont(this.getFn());
             this.salon.setForeground(Color.white);
             
@@ -78,7 +80,7 @@ private JButton filmSec,kaydet,geri;
     public JLabel getFilm() {
         if(this.film==null){
             film=new JLabel("Film Seç:");
-            this.film.setBounds(35, 265, 150, 35);
+            this.film.setBounds(35, 315, 150, 35);
             this.film.setFont(this.getFn());
             this.film.setForeground(Color.white);
         }
@@ -87,6 +89,21 @@ private JButton filmSec,kaydet,geri;
 
     public void setFilm(JLabel film) {
         this.film = film;
+    }
+
+    public JButton getKaydet() {
+        if(this.kaydet==null){
+            this.kaydet=new JButton("Kaydet");
+            this.kaydet.setBounds(400, 380, 120, 40);
+            this.kaydet.setFont(this.getFn());
+            this.kaydet.setBackground(Color.orange);
+            
+        }
+        return kaydet;
+    }
+
+    public void setKaydet(JButton kaydet) {
+        this.kaydet = kaydet;
     }
 
   
@@ -134,6 +151,35 @@ private JButton filmSec,kaydet,geri;
     public void setYear(JComboBox year) {
         this.year = year;
     }
+
+    public JComboBox getCbsaat() {
+        if(this.cbsaat==null){
+            String saat1[]={"12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"};
+            this.cbsaat=new JComboBox(saat1);
+            this.cbsaat.setBounds(160, 215, 100, 30);
+            
+        }
+        return cbsaat;
+    }
+
+    public void setCbsaat(JComboBox cbsaat) {
+        this.cbsaat = cbsaat;
+    }
+
+    public JLabel getSaat() {
+        if(this.saat==null){
+            this.saat=new JLabel("Saat Seç:");
+            this.saat.setBounds(35, 210, 150, 35);
+            this.saat.setFont(this.getFn());
+            this.saat.setForeground(Color.white);
+        }
+        return saat;
+    }
+
+    public void setSaat(JLabel saat) {
+        this.saat = saat;
+    }
+    
 
     public JLabel getTarih() {
         if(this.tarih==null){
