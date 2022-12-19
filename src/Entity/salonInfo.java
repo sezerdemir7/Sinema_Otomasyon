@@ -3,8 +3,8 @@ package Entity;
 
 public class salonInfo {
     private final int koltukSayisi=20;
-    private int no;
-    private int kat;
+    private String no;
+    private String kat;
 
     public int getKoltukSayisi() {
         return koltukSayisi;
@@ -12,19 +12,25 @@ public class salonInfo {
 
    
 
-    public int getNo() {
+    public String getNo() {
         return no;
     }
 
-    public void setNo(int no) {
+   
+
+    public void setNo(String no) {
         this.no = no;
     }
 
-    public int getKat() {
+    public String getKat() {
         return kat;
     }
 
-    public void setKat(int kat) {
+    public void setKat(String kat) {
         this.kat = kat;
+    }
+     @Override
+    public String toString() {
+        return  no +" "+koltukSayisi +" " + " " + kat ;
     }
 }

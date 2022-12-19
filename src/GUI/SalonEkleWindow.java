@@ -1,7 +1,11 @@
 package GUI;
 
+import GUI_Action.SalonEkleWindowAction;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.*;
@@ -25,7 +29,11 @@ public class SalonEkleWindow implements costumPanel{
             this.panel.add(this.getLkat());
             this.panel.add(this.getNo());
             this.panel.add(this.getKat());
-            this.panel.add(this.getKaydet());
+            try {
+                this.panel.add(this.getKaydet());
+            } catch (IOException ex) {
+                Logger.getLogger(SalonEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             this.panel.setBackground(Color.gray);
@@ -110,12 +118,13 @@ public class SalonEkleWindow implements costumPanel{
         this.kat = kat;
     }
 
-    public JButton getKaydet() {
+    public JButton getKaydet() throws IOException {
         if(this.kaydet==null){
             this.kaydet=new JButton("Kaydet");
             this.kaydet.setBounds(260, 280, 130, 40);
             this.kaydet.setFont(this.getFn());
             this.kaydet.setBackground(Color.ORANGE);
+            this.kaydet.addActionListener(new SalonEkleWindowAction(this));
         }
         return kaydet;
     }
