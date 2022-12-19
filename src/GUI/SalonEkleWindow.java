@@ -13,6 +13,7 @@ public class SalonEkleWindow implements costumPanel{
     private JTextField no;
     private JComboBox kat;
     private Font fn,fn2;
+    private JButton kaydet;
         
     @Override
     public JPanel getPanel() {
@@ -24,6 +25,7 @@ public class SalonEkleWindow implements costumPanel{
             this.panel.add(this.getLkat());
             this.panel.add(this.getNo());
             this.panel.add(this.getKat());
+            this.panel.add(this.getKaydet());
             
             
             this.panel.setBackground(Color.gray);
@@ -85,6 +87,7 @@ public class SalonEkleWindow implements costumPanel{
         if(this.no==null){
             this.no=new JTextField();
             this.no.setBounds(175, 150, 65, 40);
+            this.no.setFont(this.getFn());
         }
         return no;
     }
@@ -105,6 +108,20 @@ public class SalonEkleWindow implements costumPanel{
 
     public void setKat(JComboBox kat) {
         this.kat = kat;
+    }
+
+    public JButton getKaydet() {
+        if(this.kaydet==null){
+            this.kaydet=new JButton("Kaydet");
+            this.kaydet.setBounds(260, 280, 130, 40);
+            this.kaydet.setFont(this.getFn());
+            this.kaydet.setBackground(Color.ORANGE);
+        }
+        return kaydet;
+    }
+
+    public void setKaydet(JButton kaydet) {
+        this.kaydet = kaydet;
     }
     
 

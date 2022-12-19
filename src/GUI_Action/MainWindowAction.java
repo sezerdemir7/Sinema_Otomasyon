@@ -23,6 +23,7 @@ public class MainWindowAction implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==mw.getBtnYntc()){
             panel=new YoneticiWindow();
+            
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
             
@@ -33,6 +34,7 @@ public class MainWindowAction implements ActionListener{
         if(e.getSource()==mw.getBtnMusteri()){
             
         }
+        
     }
     
 }
