@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI_Action.SeansEkleWindowAction;
 import java.awt.Color;
 import java.awt.*;
 import javax.swing.JLabel;
@@ -32,6 +33,8 @@ private JButton filmSec,kaydet,geri;
             this.panel.add(this.getCbsaat());
             this.panel.add(this.getSaat());
             this.panel.add(this.getKaydet());
+            this.panel.add(this.getGeri());
+            
             
             this.panel.setLayout(null);
             this.panel.setVisible(true);
@@ -106,6 +109,21 @@ private JButton filmSec,kaydet,geri;
         this.kaydet = kaydet;
     }
 
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(0, 0, 80, 25);
+            this.geri.setBackground(Color.MAGENTA);
+            this.geri.setFont(this.getFn());
+            this.geri.addActionListener(new SeansEkleWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
   
     
 
@@ -147,7 +165,7 @@ private JButton filmSec,kaydet,geri;
         }
         return year;
     }
-
+        
     public void setYear(JComboBox year) {
         this.year = year;
     }

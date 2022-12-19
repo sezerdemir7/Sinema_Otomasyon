@@ -25,7 +25,6 @@ public class YoneticiWindowAction implements ActionListener {
     public YoneticiWindowAction(YoneticiWindow yntcw) throws IOException {
         // yw=new YoneticiWindow();
         yd = new YöneticiDAO();
-
         mw = new mainWindow();
         this.yw = yntcw;
     }
