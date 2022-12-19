@@ -1,10 +1,7 @@
 package GUI;
 
 import java.awt.Color;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.*;
+import java.awt.*;
 import javax.swing.JLabel;
 import javax.swing.*;
 
@@ -12,9 +9,9 @@ import javax.swing.*;
 public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
 private JComboBox day,month,year;
+private Font fn;
 
-
-private JLabel lSalonNo,lSaat,tarih;
+private JLabel lSaat,tarih,salon,film;
 
 
 
@@ -26,6 +23,10 @@ private JLabel lSalonNo,lSaat,tarih;
             panel=new JPanel();
             this.panel.setSize(800, 600);
             this.panel.add(this.getDay());
+            this.panel.add(this.getTarih());
+            this.panel.add(this.getMonth());
+            this.panel.add(this.getYear());
+            this.panel.add(this.getSalon());
             this.panel.setLayout(null);
             this.panel.setVisible(true);
             
@@ -39,23 +40,31 @@ private JLabel lSalonNo,lSaat,tarih;
         this.panel = panel;
     }
 
+    public JLabel getSalon() {
+        if(this.salon==null){
+            salon=new JLabel("Salon Seç:");
+            this.salon.setBounds(35, 210, 150, 35);
+            this.salon.setFont(this.getFn());
+            this.salon.setForeground(Color.white);
+        }
+        return salon;
+    }
+
+    public void setSalon(JLabel salon) {
+        this.salon = salon;
+    }
+
   
     
 
-    public JLabel getlSalonNo() {
-        return lSalonNo;
-    }
-
-    public void setlSalonNo(JLabel lSalonNo) {
-        this.lSalonNo = lSalonNo;
-    }
+    
 
     public JComboBox getDay() {
         if(this.day==null){
             String arr[]={"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
             day=new JComboBox(arr);
-            this.day.setBounds(100, 50, 50, 35);
-            this.day.setBackground(Color.red);
+            this.day.setBounds(150, 163, 50, 30);
+            
         }
         return day;
     }
@@ -65,6 +74,11 @@ private JLabel lSalonNo,lSaat,tarih;
     }
 
     public JComboBox getMonth() {
+        if(this.month==null){
+            String ay[]={"Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"};
+            month=new JComboBox(ay);
+            this.month.setBounds(210, 163, 100, 30);
+        }
         return month;
     }
 
@@ -73,6 +87,12 @@ private JLabel lSalonNo,lSaat,tarih;
     }
 
     public JComboBox getYear() {
+        if(this.year==null){
+            String yıl[]={"2022","2023"};
+            year=new JComboBox(yıl);
+            this.year.setBounds(320, 163, 100, 30);
+            
+        }
         return year;
     }
 
@@ -81,6 +101,12 @@ private JLabel lSalonNo,lSaat,tarih;
     }
 
     public JLabel getTarih() {
+        if(this.tarih==null){
+            tarih=new JLabel("Tarih Seç:");
+            this.tarih.setBounds(35, 160, 150, 35);
+            this.tarih.setFont(this.getFn());
+            this.tarih.setForeground(Color.white);
+        }
         return tarih;
     }
 
@@ -99,6 +125,19 @@ private JLabel lSalonNo,lSaat,tarih;
 
     public void setlSaat(JLabel lSaat) {
         this.lSaat = lSaat;
+    }
+
+    public Font getFn() {
+        if(this.fn==null){
+            fn=new Font("",Font.PLAIN,25); 
+            
+            
+        }
+        return fn;
+    }
+
+    public void setFn(Font fn) {
+        this.fn = fn;
     }
 
 
