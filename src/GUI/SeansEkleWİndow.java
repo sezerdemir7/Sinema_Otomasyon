@@ -27,6 +27,10 @@ private JLabel lSaat,tarih,salon,film;
             this.panel.add(this.getMonth());
             this.panel.add(this.getYear());
             this.panel.add(this.getSalon());
+            this.panel.add(this.getFilm());
+            
+            
+            
             this.panel.setLayout(null);
             this.panel.setVisible(true);
             
@@ -52,6 +56,20 @@ private JLabel lSaat,tarih,salon,film;
 
     public void setSalon(JLabel salon) {
         this.salon = salon;
+    }
+
+    public JLabel getFilm() {
+        if(this.film==null){
+            film=new JLabel("Film Seç:");
+            this.film.setBounds(35, 265, 150, 35);
+            this.film.setFont(this.getFn());
+            this.film.setForeground(Color.white);
+        }
+        return film;
+    }
+
+    public void setFilm(JLabel film) {
+        this.film = film;
     }
 
   
