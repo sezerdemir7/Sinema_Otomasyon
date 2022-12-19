@@ -80,6 +80,7 @@ public class YöneticiProcessWindow implements costumPanel{
             this.salonEkle.setBackground(Color.yellow);
             this.salonEkle.setForeground(Color.darkGray);
             this.salonEkle.setFont(this.getFn());
+            this.salonEkle.addActionListener(new YöneticiProcessAction(this));
         }
         return salonEkle;
     }

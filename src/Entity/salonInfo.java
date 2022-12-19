@@ -2,7 +2,7 @@ package Entity;
 
 
 public class salonInfo {
-    private int koltukSayisi;
+    private final int koltukSayisi=20;
     private int no;
     private int kat;
 
@@ -10,9 +10,7 @@ public class salonInfo {
         return koltukSayisi;
     }
 
-    public void setKoltukSayisi(int koltukSayisi) {
-        this.koltukSayisi = koltukSayisi;
-    }
+   
 
     public int getNo() {
         return no;

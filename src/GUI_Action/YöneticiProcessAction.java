@@ -8,6 +8,7 @@ import GUI.YöneticiProcessWindow;
 import GUI.costumPanel;
 import GUI.mainWindow;
 import GUI.FilmEkleWindow;
+import GUI.SalonEkleWindow;
 import GUI.SeansEkleWİndow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ import java.awt.event.ActionListener;
 public class YöneticiProcessAction implements ActionListener {
 
     private mainWindow mw;
-    private costumPanel panel, panel2;
+    private costumPanel panel;
     private YöneticiProcessWindow ypw;
 
     public YöneticiProcessAction(YöneticiProcessWindow ypw) {
@@ -38,10 +39,17 @@ public class YöneticiProcessAction implements ActionListener {
         }
 
         if (e.getSource() == ypw.getSeansEkle()) {
-            panel2 = new SeansEkleWİndow();
-            mw.getWindow().setContentPane(panel2.getPanel());
+            panel = new SeansEkleWİndow();
+            mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
 
+        }
+        if(e.getSource()==ypw.getSalonEkle()){
+            panel=new SalonEkleWindow();
+            mw.getWindow().setContentPane(panel.getPanel());
+            mw.getWindow().repaint();
+            
+            
         }
 
     }
