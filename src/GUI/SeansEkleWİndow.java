@@ -9,10 +9,10 @@ import javax.swing.*;
 public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
 private JComboBox day,month,year;
-private Font fn;
+private Font fn,fn2;
 
-private JLabel lSaat,tarih,salon,film;
-
+private JLabel lSaat,tarih,salon,film,baslık;
+private JButton filmSec,kaydet,geri;
 
 
 
@@ -28,7 +28,7 @@ private JLabel lSaat,tarih,salon,film;
             this.panel.add(this.getYear());
             this.panel.add(this.getSalon());
             this.panel.add(this.getFilm());
-            
+            this.panel.add(this.getBaslık());
             
             
             this.panel.setLayout(null);
@@ -50,10 +50,27 @@ private JLabel lSaat,tarih,salon,film;
             this.salon.setBounds(35, 210, 150, 35);
             this.salon.setFont(this.getFn());
             this.salon.setForeground(Color.white);
+            
         }
         return salon;
     }
 
+    public JLabel getBaslık() {
+        if(this.baslık==null){
+            this.baslık=new JLabel("Seans Ekleme Ekranı");
+            this.baslık.setBounds(150, 50, 400, 50);
+            this.baslık.setForeground(Color.white);
+            this.baslık.setFont(this.getFn2());
+        }
+        return baslık;
+    }
+
+    public void setBaslık(JLabel baslık) {
+        this.baslık = baslık;
+    }
+
+    
+    
     public void setSalon(JLabel salon) {
         this.salon = salon;
     }
@@ -156,6 +173,18 @@ private JLabel lSaat,tarih,salon,film;
 
     public void setFn(Font fn) {
         this.fn = fn;
+    }
+
+    public Font getFn2() {
+        if(this.fn2==null){
+            fn2 =new Font("",Font.ITALIC,40) ;
+            
+        }
+        return fn2;
+    }
+
+    public void setFn2(Font fn2) {
+        this.fn2 = fn2;
     }
 
 
