@@ -100,7 +100,7 @@ private JButton filmSec,kaydet,geri;
             this.kaydet.setBounds(400, 380, 120, 40);
             this.kaydet.setFont(this.getFn());
             this.kaydet.setBackground(Color.orange);
-            
+            this.kaydet.addActionListener(new SeansEkleWindowAction(this));
         }
         return kaydet;
     }

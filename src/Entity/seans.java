@@ -1,12 +1,12 @@
 
 package Entity;
 
-import java.util.Date;
+
 
 
 public class seans {
     private String film;
-    private Date tarih;
+    private String tarih,saat;
     private int ucret;
     private int salonNo;
 
@@ -26,13 +26,28 @@ public class seans {
         this.film = film;
     }
 
-    public Date getTarih() {
+    public String getTarih() {
         return tarih;
     }
 
-    public void setTarih(Date tarih) {
+    public void setTarih(String tarih) {
         this.tarih = tarih;
     }
+
+    public String getSaat() {
+        return saat;
+    }
+
+    public void setSaat(String saat) {
+        this.saat = saat;
+    }
+
+    @Override
+    public String toString() {
+        return  film + "&" + tarih + "&" + saat + "&" + ucret + "&" + salonNo + '&';
+    }
+    
+    
     
     public void listele(){
         //seanslar listeleyip arsından bitane seç me

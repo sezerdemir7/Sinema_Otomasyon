@@ -6,6 +6,11 @@ import GUI.YöneticiProcessWindow;
 import GUI.mainWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import DAO.SeansDAO;
+import Entity.seans;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class SeansEkleWindowAction implements ActionListener{
@@ -13,10 +18,14 @@ public class SeansEkleWindowAction implements ActionListener{
     private costumPanel panel;
     private SeansEkleWİndow sew;
     private YöneticiProcessWindow ypw;
+    private SeansDAO sd;
+    private  seans s1;
 
     public SeansEkleWindowAction(SeansEkleWİndow sew) {
         ypw=new YöneticiProcessWindow();
         mw=new mainWindow();
+        sd=new SeansDAO();
+        s1=new seans();
         this.sew=sew;
     }
     
@@ -29,6 +38,15 @@ public class SeansEkleWindowAction implements ActionListener{
             
             mw.getWindow().setContentPane(ypw.getPanel());
             mw.getWindow().repaint();
+            
+        }
+        if(e.getSource()==sew.getKaydet()){
+           s1.setSaat((String) sew.getCbsaat().getModel().getSelectedItem());
+            try {
+                sd.kaydet(s1);
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
         }
     }
