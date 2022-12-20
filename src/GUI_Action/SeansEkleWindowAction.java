@@ -20,6 +20,7 @@ public class SeansEkleWindowAction implements ActionListener{
     private YöneticiProcessWindow ypw;
     private SeansDAO sd;
     private  seans s1;
+    
 
     public SeansEkleWindowAction(SeansEkleWİndow sew) {
         ypw=new YöneticiProcessWindow();

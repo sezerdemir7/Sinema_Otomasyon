@@ -13,8 +13,7 @@ public class main {
        
         mainWindow mw=new mainWindow();
         mw.build();
-        filmDAO f=new filmDAO();
-        f.listele("class Entity.filmInfo.txt");
+        
         
     }
     

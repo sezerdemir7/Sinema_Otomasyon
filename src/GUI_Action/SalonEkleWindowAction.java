@@ -23,7 +23,7 @@ public class SalonEkleWindowAction implements ActionListener{
     private SalonEkleWindow sew;
     private salonInfo s1;
     private SalonDAO sd;
-
+    
     public SalonEkleWindowAction(SalonEkleWindow sew) throws IOException {
         mw=new mainWindow();
         s1=new salonInfo();

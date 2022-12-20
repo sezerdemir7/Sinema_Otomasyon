@@ -1,8 +1,10 @@
 package GUI;
 
+import DAO.filmDAO;
 import GUI_Action.SeansEkleWindowAction;
 import java.awt.Color;
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.*;
 
@@ -11,10 +13,12 @@ public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
 private JComboBox day,month,year,cbsaat;
 private Font fn,fn2;
+private DefaultListModel model;
+private JList list;
 
 private JLabel lSaat,tarih,salon,film,baslık,saat;
 private JButton filmSec,kaydet,geri;
-
+private filmDAO flmdao;
 
 
 
@@ -34,7 +38,7 @@ private JButton filmSec,kaydet,geri;
             this.panel.add(this.getSaat());
             this.panel.add(this.getKaydet());
             this.panel.add(this.getGeri());
-            
+//            this.panel.add(this.getList());
             
             this.panel.setLayout(null);
             this.panel.setVisible(true);
@@ -48,6 +52,41 @@ private JButton filmSec,kaydet,geri;
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
+
+//    public DefaultListModel getModel() throws IOException {
+//        if(this.model==null){
+//             flmdao=new filmDAO();
+//             String[] dizi1=flmdao.listele("class Entity.filmInfo.txt");
+//             
+//             
+//            model=new DefaultListModel();
+//            
+//                model.addElement(flmdao.listele("class Entity.filmInfo.txt"));
+//            
+//            
+//        }
+//        return model;
+//    }
+//
+//    public void setModel(DefaultListModel model) {
+//        this.model = model;
+//    }
+//
+//    public JList getList() {
+//        if(this.list==null){
+//            list = new JList(model);
+//            list.setBounds(400, 300, 200, 100);
+//        }
+//        return list;
+//    }
+//
+//    public void setList(JList list) {
+//        this.list = list;
+//    }
+//    
+    
+    
+    
 
     public JLabel getSalon() {
         if(this.salon==null){
