@@ -1,10 +1,13 @@
 package GUI;
 
+import DAO.SalonDAO;
 import DAO.filmDAO;
 import GUI_Action.SeansEkleWindowAction;
 import java.awt.Color;
 import java.awt.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.*;
 
@@ -13,12 +16,13 @@ public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
 private JComboBox day,month,year,cbsaat;
 private Font fn,fn2;
-private DefaultListModel model;
-private JList list;
-
+private DefaultListModel model,modelseans;
+private JList list,listseans;
+private JScrollPane sp;
 private JLabel lSaat,tarih,salon,film,baslık,saat;
 private JButton filmSec,kaydet,geri;
 private filmDAO flmdao;
+private SalonDAO slndao;
 
 
 
@@ -38,8 +42,22 @@ private filmDAO flmdao;
             this.panel.add(this.getSaat());
             this.panel.add(this.getKaydet());
             this.panel.add(this.getGeri());
-//            this.panel.add(this.getList());
+            try {
+                this.panel.add(this.getList());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                this.getPanel().add(this.getListseans());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
+            try {
+                this.panel.add(this.getSp());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.panel.setLayout(null);
             this.panel.setVisible(true);
             
@@ -53,37 +71,92 @@ private filmDAO flmdao;
         this.panel = panel;
     }
 
-//    public DefaultListModel getModel() throws IOException {
-//        if(this.model==null){
-//             flmdao=new filmDAO();
-//             String[] dizi1=flmdao.listele("class Entity.filmInfo.txt");
-//             
-//             
-//            model=new DefaultListModel();
-//            
-//                model.addElement(flmdao.listele("class Entity.filmInfo.txt"));
-//            
-//            
-//        }
-//        return model;
-//    }
-//
-//    public void setModel(DefaultListModel model) {
-//        this.model = model;
-//    }
-//
-//    public JList getList() {
-//        if(this.list==null){
-//            list = new JList(model);
-//            list.setBounds(400, 300, 200, 100);
-//        }
-//        return list;
-//    }
-//
-//    public void setList(JList list) {
-//        this.list = list;
-//    }
-//    
+    public JScrollPane getSp() throws IOException {
+        if(this.sp==null){
+            this.sp=new JScrollPane();
+            this.sp.setViewportView(this.getList());
+            this.sp.setBounds(440, 370, 20, 100);
+        }
+        return sp;
+    }
+
+    public void setSp(JScrollPane sp) {
+        this.sp = sp;
+    }
+    
+
+    public DefaultListModel getModelseans() throws IOException {
+        if(this.modelseans==null){
+            this.modelseans=new DefaultListModel();
+            slndao=new SalonDAO();
+             String[] dizi2=slndao.listele("class Entity.salonInfo.txt");
+            int i;
+            for( i=0;i<dizi2.length;i++){
+               
+               this.model.addElement(dizi2[i]); 
+               
+            }
+        }
+        return modelseans;
+    }
+
+    public void setModelseans(DefaultListModel modelseans) {
+        this.modelseans = modelseans;
+    }
+
+    public JList getListseans() throws IOException {
+        if(this.listseans==null){
+           this.listseans = new JList(this.getModelseans());
+            this.listseans.setBounds(160, 250, 300, 80);
+            
+            
+        }
+        return listseans;
+    }
+
+    public void setListseans(JList listseans) {
+        this.listseans = listseans;
+    }
+    
+
+    public DefaultListModel getModel() throws IOException {
+        if(this.model==null){
+             flmdao=new filmDAO();
+             String[] dizi1=flmdao.listele("class Entity.filmInfo.txt");
+            
+             
+            this.model=new DefaultListModel();
+            int i;
+            for( i=0;i<dizi1.length;i++){
+               
+               this.model.addElement(dizi1[i]); 
+               
+            }
+                
+            
+            
+        }
+        return model;
+    }
+
+    public void setModel(DefaultListModel model) {
+        this.model = model;
+    }
+
+    public JList getList() throws IOException {
+        if(this.list==null){
+            this.list = new JList(this.getModel());
+            this.list.setBounds(160, 370, 300, 100);
+            this.list.setLayoutOrientation(JList.VERTICAL);
+            this.list.setLayout(null);
+        }
+        return list;
+    }
+
+    public void setList(JList list) {
+        this.list = list;
+    }
+    
     
     
     
@@ -91,7 +164,7 @@ private filmDAO flmdao;
     public JLabel getSalon() {
         if(this.salon==null){
             salon=new JLabel("Salon Seç:");
-            this.salon.setBounds(35, 260, 150, 35);
+            this.salon.setBounds(35, 280, 150, 35);
             this.salon.setFont(this.getFn());
             this.salon.setForeground(Color.white);
             
@@ -122,7 +195,7 @@ private filmDAO flmdao;
     public JLabel getFilm() {
         if(this.film==null){
             film=new JLabel("Film Seç:");
-            this.film.setBounds(35, 315, 150, 35);
+            this.film.setBounds(35, 395, 150, 35);
             this.film.setFont(this.getFn());
             this.film.setForeground(Color.white);
         }
@@ -136,7 +209,7 @@ private filmDAO flmdao;
     public JButton getKaydet() {
         if(this.kaydet==null){
             this.kaydet=new JButton("Kaydet");
-            this.kaydet.setBounds(400, 380, 120, 40);
+            this.kaydet.setBounds(400, 500, 120, 40);
             this.kaydet.setFont(this.getFn());
             this.kaydet.setBackground(Color.orange);
             this.kaydet.addActionListener(new SeansEkleWindowAction(this));

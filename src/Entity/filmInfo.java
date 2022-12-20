@@ -4,7 +4,7 @@ package Entity;
 public class filmInfo {
     
     private String ad;
-    public static int id=1;
+    
     private String süre;
     private String type;
     private String category;
@@ -56,7 +56,7 @@ public class filmInfo {
 
     @Override
     public String toString() {
-        return   (id++)+"&"+ad + "&" + süre +" dk"+ "&" + type + "&" + category+"&" ;
+        return   ad + " " + süre +" dk"+ " " + type + " " + category+"&" ;
     }
     
     
