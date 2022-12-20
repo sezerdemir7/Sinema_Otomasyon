@@ -4,17 +4,17 @@ package Entity;
 public class filmInfo {
     
     private String ad;
-    private int id;
-    private int süre;
+    public static int id=1;
+    private String süre;
     private String type;
     private String category;
 
     public filmInfo() {
     }
 
-    public filmInfo(String ad, int id, int süre, String type, String category) {
+    public filmInfo(String ad, String süre, String type, String category) {
         this.ad = ad;
-        this.id = id;
+        
         this.süre = süre;
         this.type = type;
         this.category = category;
@@ -28,19 +28,13 @@ public class filmInfo {
         this.ad = ad;
     }
 
-    public int getId() {
-        return id;
-    }
+   
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getSüre() {
+    public String getSüre() {
         return süre;
     }
 
-    public void setSüre(int süre) {
+    public void setSüre(String süre) {
         this.süre = süre;
     }
 
@@ -62,7 +56,7 @@ public class filmInfo {
 
     @Override
     public String toString() {
-        return   ad + " " + id + " " + süre + " " + type + " " + category ;
+        return   (id++)+"&"+ad + "&" + süre +" dk"+ "&" + type + "&" + category+"&" ;
     }
     
     

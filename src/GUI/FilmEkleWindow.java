@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI_Action.FilmEkleWindowAction;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
@@ -49,6 +50,7 @@ public class FilmEkleWindow implements costumPanel{
             this.ekle.setBounds(250, 350, 100, 40);
             this.ekle.setBackground(Color.orange);
             this.ekle.setFont(this.getFn());
+            this.ekle.addActionListener(new FilmEkleWindowAction(this));
         }
         return ekle;
     }
@@ -142,13 +144,7 @@ public class FilmEkleWindow implements costumPanel{
         this.Lkatagory = Lkatagory;
     }
 
-//    public JTextField getId() {
-//        return id;
-//    }
-//
-//    public void setId(JTextField id) {
-//        this.id = id;
-//    }
+
 
     public JTextField getAd() {
         if(this.ad==null){

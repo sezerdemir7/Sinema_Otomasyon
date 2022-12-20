@@ -37,7 +37,7 @@ public class SalonEkleWindowAction implements ActionListener{
              if(e.getSource()==sew.getKaydet()){
                  s1.setNo(sew.getNo().getText());
                  s1.setKat((String) sew.getKat().getModel().getSelectedItem());
-                 sd.ekle(s1);
+                 sd.kaydet(s1);
              }} catch (IOException ex) {
              Logger.getLogger(SalonEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
          }
