@@ -53,11 +53,11 @@ private SalonDAO slndao;
                 Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            try {
-                this.panel.add(this.getSp());
-            } catch (IOException ex) {
-                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                this.panel.add(this.getSp());
+//            } catch (IOException ex) {
+//                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             this.panel.setLayout(null);
             this.panel.setVisible(true);
             
@@ -147,8 +147,8 @@ private SalonDAO slndao;
         if(this.list==null){
             this.list = new JList(this.getModel());
             this.list.setBounds(160, 370, 300, 100);
-            this.list.setLayoutOrientation(JList.VERTICAL);
-            this.list.setLayout(null);
+            this.list.add(this.getSp());
+            
         }
         return list;
     }
