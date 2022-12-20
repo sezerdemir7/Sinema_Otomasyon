@@ -3,7 +3,7 @@ package DAO;
 import java.io.*;
 import Entity.yoneticiInfo;
 
-public class YöneticiDAO implements DAO_Interface<yoneticiInfo>{
+public class YöneticiDAO {
 
 //    private File f;
 //    private FileReader fr;
@@ -16,20 +16,20 @@ public class YöneticiDAO implements DAO_Interface<yoneticiInfo>{
     BufferedReader br = new BufferedReader(fr);
     FileWriter fw = new FileWriter(f);
 
-    saveDAO s1 = new saveDAO();
+    //saveDAO s1 = new saveDAO();
     yoneticiInfo ynt = new yoneticiInfo();
 
     public YöneticiDAO() throws IOException {
 
-        s1.save(ynt.toString(), "yönetici.txt");
+        //s1.save(ynt.toString(), "yönetici.txt");
 
     }
-  @Override
+
     public void ekle(yoneticiInfo entity) {
         
     }
 
-    @Override
+   
     public void sil(yoneticiInfo entity) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
