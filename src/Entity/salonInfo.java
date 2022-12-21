@@ -31,6 +31,6 @@ public class salonInfo {
     }
      @Override
     public String toString() {
-        return  no +" "+koltukSayisi +" " + " " + kat ;
+        return  "Salon NO:"+no +" Koltuk Sayisi "+koltukSayisi +" " + kat +".Kat&";
     }
 }

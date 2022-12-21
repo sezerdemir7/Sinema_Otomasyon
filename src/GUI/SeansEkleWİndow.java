@@ -14,12 +14,12 @@ import javax.swing.*;
 
 public class SeansEkleWİndow implements costumPanel{
 private JPanel panel;
-private JComboBox day,month,year,cbsaat;
+private JComboBox day,month,year,cbsaat,ucret;
 private Font fn,fn2;
 private DefaultListModel model,modelseans;
 private JList list,listseans;
-private JScrollPane sp;
-private JLabel lSaat,tarih,salon,film,baslık,saat;
+private JScrollPane sp,sp2;
+private JLabel lSaat,tarih,salon,film,baslık,saat,Lucret;
 private JButton filmSec,kaydet,geri;
 private filmDAO flmdao;
 private SalonDAO slndao;
@@ -53,11 +53,18 @@ private SalonDAO slndao;
                 Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            try {
-//                this.panel.add(this.getSp());
-//            } catch (IOException ex) {
-//                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            try {
+                this.panel.add(this.getSp());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                this.panel.add(this.getSp2());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWİndow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.panel.add(this.getLucret());
+            this.panel.add(this.getUcret());
             this.panel.setLayout(null);
             this.panel.setVisible(true);
             
@@ -71,17 +78,64 @@ private SalonDAO slndao;
         this.panel = panel;
     }
 
+    public JLabel getLucret() {
+        if(this.Lucret==null){
+            this.Lucret=new JLabel("Ücret Seç:");
+            this.Lucret.setBounds(510, 160, 150, 45);
+            this.Lucret.setFont(this.getFn());
+            this.Lucret.setForeground(Color.white);
+        }
+        return Lucret;
+    }
+
+    public void setLucret(JLabel Lucret) {
+        this.Lucret = Lucret;
+    }
+
+    
+    public JComboBox getUcret() {
+        if(this.ucret==null){
+            String[] arry={"10","20","30","40","50"};
+            this.ucret=new JComboBox(arry);
+            
+            this.ucret.setBounds(640, 170, 60, 30);
+        }
+        return ucret;
+    }
+
+    public void setUcret(JComboBox ucret) {
+        this.ucret = ucret;
+    }
+    
+
+    
+    
     public JScrollPane getSp() throws IOException {
         if(this.sp==null){
-            this.sp=new JScrollPane();
-            this.sp.setViewportView(this.getList());
-            this.sp.setBounds(440, 370, 20, 100);
+            this.sp=new JScrollPane(this.getList());
+            this.sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+             this.sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            this.sp.setBounds(160, 370, 300, 140);
         }
         return sp;
     }
 
     public void setSp(JScrollPane sp) {
         this.sp = sp;
+    }
+
+    public JScrollPane getSp2() throws IOException {
+        if(this.sp2==null){
+            this.sp2=new JScrollPane(this.getListseans());
+            this.sp2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+             this.sp2.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            this.sp2.setBounds(160, 250, 300, 100);
+        }
+        return sp2;
+    }
+
+    public void setSp2(JScrollPane sp2) {
+        this.sp2 = sp2;
     }
     
 
@@ -93,7 +147,7 @@ private SalonDAO slndao;
             int i;
             for( i=0;i<dizi2.length;i++){
                
-               this.model.addElement(dizi2[i]); 
+               this.modelseans.addElement(dizi2[i]); 
                
             }
         }
@@ -147,8 +201,7 @@ private SalonDAO slndao;
         if(this.list==null){
             this.list = new JList(this.getModel());
             this.list.setBounds(160, 370, 300, 100);
-            this.list.add(this.getSp());
-            
+          
         }
         return list;
     }
@@ -209,7 +262,7 @@ private SalonDAO slndao;
     public JButton getKaydet() {
         if(this.kaydet==null){
             this.kaydet=new JButton("Kaydet");
-            this.kaydet.setBounds(400, 500, 120, 40);
+            this.kaydet.setBounds(570, 380, 120, 40);
             this.kaydet.setFont(this.getFn());
             this.kaydet.setBackground(Color.orange);
             this.kaydet.addActionListener(new SeansEkleWindowAction(this));

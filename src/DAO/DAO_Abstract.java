@@ -17,6 +17,7 @@ public abstract class DAO_Abstract {
         try (BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(nesne.toString());
             bw.newLine();
+            bw.close();
         }
     }
     
@@ -34,9 +35,9 @@ public abstract class DAO_Abstract {
             line=line+str;
         }
         String[] liste=line.split("&");
-        for(String a: liste){
-            System.out.println(a);
-        }
+//        for(String a: liste){
+//            System.out.println(a);
+//        }
         
         
         

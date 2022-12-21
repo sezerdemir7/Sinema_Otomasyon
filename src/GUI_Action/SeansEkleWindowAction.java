@@ -44,8 +44,19 @@ public class SeansEkleWindowAction implements ActionListener{
         if(e.getSource()==sew.getKaydet()){
            s1.setSaat((String) sew.getCbsaat().getModel().getSelectedItem());
            s1.setTarih(sew.getDay().getModel().getSelectedItem()+"/"+sew.getMonth().getModel().getSelectedItem()+"/"+sew.getYear().getModel().getSelectedItem());
-            
+            try {
+                s1.setFilm(sew.getList().getSelectedValue().toString());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                s1.setSalon(sew.getListseans().getSelectedValue().toString());
+            } catch (IOException ex) {
+                Logger.getLogger(SeansEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            s1.setUcret((String) sew.getUcret().getModel().getSelectedItem());
            try {
+               
                 sd.kaydet(s1);
             } catch (IOException ex) {
                 Logger.getLogger(SeansEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);

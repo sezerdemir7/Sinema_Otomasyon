@@ -1,8 +1,5 @@
-null&null&18:00&0&0&
-null&5/Mayıs/2023&12:00&0&0&
-null&1/Ocak/2022&12:00&0&0&
-null&1/Ocak/2022&12:00&0&0&
-null&1/Ocak/2022&12:00&0&0&
-null&1/Ocak/2022&12:00&0&0&
-null&1/Nisan/2023&15:00&0&0&
-null&1/Ocak/2022&12:00&0&0&
+1 Yüzüklerin efendisi 356 dk yabancı Aksiyon&3/Mayıs/2023&19:00&0&0&
+Karayip Korsanları 145 dk yabancı Macera&5/Haziran/2023&15:00&0&455 20  2&
+2 Samuray Jack 270 dk yabancı Aksiyon&6/Haziran/2023&15:00&0&Salon NO:121 Koltuk Sayisi 20 3.Kat&
+Hobbit  145 dk yerli Aksiyon&4/Haziran/2022&19:00&0&Salon NO:672 Koltuk Sayisi 20 3.Kat&
+1 Yüzüklerin efendisi 356 dk yabancı Aksiyon&12:00&3/Ocak/2022&50TL&Salon NO:672 Koltuk Sayisi 20 3.Kat&

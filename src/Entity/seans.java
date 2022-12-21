@@ -7,14 +7,22 @@ package Entity;
 public class seans {
     private String film;
     private String tarih,saat;
-    private int ucret;
-    private int salonNo;
+    private String ucret;
+    private String salon;
 
-    public int getUcret() {
+    public String getSalon() {
+        return salon;
+    }
+
+    public void setSalon(String salon) {
+        this.salon = salon;
+    }
+
+    public String getUcret() {
         return ucret;
     }
 
-    public void setUcret(int ucret) {
+    public void setUcret(String ucret) {
         this.ucret = ucret;
     }
 
@@ -44,12 +52,10 @@ public class seans {
 
     @Override
     public String toString() {
-        return  film + "&" + tarih + "&" + saat + "&" + ucret + "&" + salonNo + '&';
+        return  film + "&" +  saat+ "&" + tarih + "&" + ucret + "TL&" + salon + '&';
     }
     
     
     
-    public void listele(){
-        //seanslar listeleyip arsından bitane seç me
-    }
+   
 }

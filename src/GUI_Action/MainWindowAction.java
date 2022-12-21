@@ -23,9 +23,11 @@ public class MainWindowAction implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==mw.getBtnYntc()){
             panel=new YoneticiWindow();
-            
-            mw.getWindow().setContentPane(panel.getPanel());
-            mw.getWindow().repaint();
+            mw.setPanel(panel.getPanel());
+            mw.build();
+            mw.getWindow();
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
             
         }
         if(e.getSource()==mw.getBtnBltci()){
