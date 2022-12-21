@@ -13,6 +13,11 @@ public class filmDAO extends DAO_Abstract{
     public String[] listele(String dosya) throws IOException {
         return super.listele(dosya); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
+
+    @Override
+    public String[] sil(String dosya, String str) throws IOException {
+        return super.sil(dosya, str); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     
     
     

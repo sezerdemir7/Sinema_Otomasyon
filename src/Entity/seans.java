@@ -52,7 +52,7 @@ public class seans {
 
     @Override
     public String toString() {
-        return  film + "&" +  saat+ "&" + tarih + "&" + ucret + "TL&" + salon + '&';
+        return  film + " " +  tarih+ " " + saat  + " " + ucret + "TL " + salon + '&';
     }
     
     

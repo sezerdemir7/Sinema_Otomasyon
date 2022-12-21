@@ -1,3 +1,6 @@
-Salon NO:121 Koltuk Sayisi 20 3.Kat&
-Salon NO:467 Koltuk Sayisi 20 2.Kat&
-Salon NO:672 Koltuk Sayisi 20 3.Kat&
+Salon NO:21 Koltuk Sayisi 20 1.Kat&
+Salon NO:212 Koltuk Sayisi 20 1.Kat&
+Salon NO:2 Koltuk Sayisi 20 3.Kat&
+Salon NO:221 Koltuk Sayisi 20 1.Kat&
+Salon NO: Koltuk Sayisi 20 1.Kat&
+Salon NO:4 Koltuk Sayisi 20 1.Kat&
