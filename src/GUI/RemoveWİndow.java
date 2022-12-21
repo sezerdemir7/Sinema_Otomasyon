@@ -59,7 +59,7 @@ public class RemoveWİndow implements costumPanel{
     public JLabel getSec() {
         if(this.sec==null){
             this.sec=new JLabel("Film Seç:");
-            this.sec.setBounds(85, 150, 150, 45);
+            this.sec.setBounds(85, 70, 150, 45);
             this.sec.setFont(this.getFn());
             this.sec.setForeground(Color.white);
         }
@@ -74,7 +74,7 @@ public class RemoveWİndow implements costumPanel{
             this.sp=new JScrollPane(this.getList());
             this.sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
              this.sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-            this.sp.setBounds(0, 200, 300, 100);
+            this.sp.setBounds(5, 120, 300, 100);
         }
         return sp;
     }
