@@ -8,6 +8,7 @@ import GUI.YöneticiProcessWindow;
 import GUI.costumPanel;
 import GUI.mainWindow;
 import GUI.FilmEkleWindow;
+import GUI.RemoveWİndow;
 import GUI.SalonEkleWindow;
 import GUI.SeansEkleWİndow;
 import java.awt.event.ActionEvent;
@@ -49,6 +50,12 @@ public class YöneticiProcessAction implements ActionListener {
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
             
+            
+        }
+        if(e.getSource()==ypw.getFilmSil()){
+            panel=new RemoveWİndow();
+            mw.getWindow().setContentPane(panel.getPanel());
+            mw.getWindow().repaint();
             
         }
 

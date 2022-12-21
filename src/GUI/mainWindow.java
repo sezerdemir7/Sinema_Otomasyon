@@ -25,7 +25,13 @@ public class mainWindow {
 
         this.getWindow();
 
-        
+        this.getPanel().add(this.getBaslık());
+        this.getPanel().add(this.getBtnYntc());//yönetici giriş butonu
+        this.getPanel().add(this.getlYntc());//yonetici icon
+        this.getPanel().add(this.getlBiletci());//Biletci icon      
+        this.getPanel().add(this.getBtnBltci());//biletci girş butonu
+        this.getPanel().add(this.getLmusteri());//musteri icon
+        this.getPanel().add(this.getBtnMusteri());//musteri giriş butonu
 
     }
 
@@ -101,13 +107,6 @@ public class mainWindow {
     public JPanel getPanel() {
         if (this.panel == null) {
             this.panel = new JPanel();
-            this.getPanel().add(this.getBaslık());
-        this.getPanel().add(this.getBtnYntc());//yönetici giriş butonu
-        this.getPanel().add(this.getlYntc());//yonetici icon
-        this.getPanel().add(this.getlBiletci());//Biletci icon      
-        this.getPanel().add(this.getBtnBltci());//biletci girş butonu
-        this.getPanel().add(this.getLmusteri());//musteri icon
-        this.getPanel().add(this.getBtnMusteri());//musteri giriş butonu
             this.getPanel().setSize(800, 600);
             this.panel.setLayout(null);
             this.panel.setBackground(Color.GRAY);

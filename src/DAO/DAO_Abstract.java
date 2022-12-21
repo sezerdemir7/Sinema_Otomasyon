@@ -22,7 +22,7 @@ public abstract class DAO_Abstract {
     }
     
     public String[] listele(String dosya) throws IOException{
-        ArrayList list=new ArrayList();
+//        ArrayList list=new ArrayList();
        // ArrayList liste2=new ArrayList();
         File f=new File(dosya);
         if(!f.exists()){
@@ -42,6 +42,34 @@ public abstract class DAO_Abstract {
         
         
         return liste;
+    }
+    
+    
+    public String[] sil(String dosya,String str) throws IOException{
+        File f=new File(dosya);
+        if(!f.exists()){
+            f.createNewFile();
+        }
+        FileReader fr=new FileReader(f);
+        BufferedReader br=new BufferedReader(fr);
+        FileWriter fw=new FileWriter(f,false);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+        String line="",tempLine="";
+        while((tempLine=br.readLine())!=null){
+            
+            if(!tempLine.equals(str)){
+            } else {
+                bw.write(tempLine);
+                bw.newLine();
+                line=line+tempLine;
+            }
+            
+        }
+        String[] liste=line.split("&");
+        
+        return liste;
+        
     }
     
     
