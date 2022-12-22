@@ -101,6 +101,7 @@ public class RemoveWİndow implements costumPanel{
             this.salon.setBounds(500, 230, 150, 45);
             this.salon.setBackground(Color.ORANGE);
             this.salon.setFont(this.getFn());
+            this.salon.addActionListener(new RemoveWindowAction(this));
         }
         return salon;
     }
@@ -115,6 +116,7 @@ public class RemoveWİndow implements costumPanel{
             this.seans.setBounds(300, 470, 150, 45);
             this.seans.setBackground(Color.ORANGE);
             this.seans.setFont(this.getFn());
+            this.seans.addActionListener(new RemoveWindowAction(this));
         }
         return seans;
     }

@@ -42,39 +42,40 @@ public abstract class DAO_Abstract {
     }
 
     public String[] sil(String dosya, String str) throws IOException {
-        ArrayList list=new ArrayList();
-        File file=new File(dosya);
-          if(!file.exists()){
-              file.createNewFile();
-          }
-          FileReader fileR=new FileReader(file);
-          BufferedReader bfr=new BufferedReader(fileR);
-          
-          FileWriter fwr=new FileWriter(file,false);
-          BufferedWriter bfw=new BufferedWriter(fwr);
-          str=str+"&";
-          String line="",tempLine="";
-          
-          while((line=bfr.readLine())!=null){
-              System.out.println(line);
-              if(line!=str){
-                  tempLine=tempLine+line;
-                 list.add(line);
-//                  
-              }
-              
-              
-              
-              
-          }
-          for(int i=0;i<list.size();i++){
-              System.out.println(list.get(i));
-              bfw.write((String) list.get(i));
-              bfw.newLine();
-          }
-          bfw.close();
-          System.out.println(tempLine);
-          
+        ArrayList list = new ArrayList();
+        File file = new File(dosya);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        FileReader fileR = new FileReader(file);
+        BufferedReader bfr = new BufferedReader(fileR);
+
+        FileWriter fwr = new FileWriter(file, true);
+        BufferedWriter bfw = new BufferedWriter(fwr);
+        str = str + "&";
+        String line = "", tempLine = "";
+
+        while ((line = bfr.readLine()) != null) {
+            //System.out.println(line);
+            if (!line.equals(str)) {
+                tempLine = tempLine + line;
+                list.add(line);
+                  
+            }
+
+        }
+        PrintWriter writer = new PrintWriter(file);
+        writer.print("");
+        writer.close();
+
+        for (int i = 0; i < list.size(); i++) {
+            // System.out.println(list.get(i));
+            bfw.write((String) list.get(i));
+            bfw.newLine();
+        }
+        bfw.close();
+        //System.out.println(tempLine);
+
         String[] liste = tempLine.split("&");
 
         return liste;

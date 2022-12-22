@@ -23,7 +23,7 @@ public class SeansEkleWindowAction implements ActionListener{
     
 
     public SeansEkleWindowAction(SeansEkleWİndow sew) {
-        ypw=new YöneticiProcessWindow();
+       
         mw=new mainWindow();
         sd=new SeansDAO();
         s1=new seans();
@@ -36,9 +36,12 @@ public class SeansEkleWindowAction implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource()==sew.getGeri()){
-            
-            mw.getWindow().setContentPane(ypw.getPanel());
-            mw.getWindow().repaint();
+            panel= new YöneticiProcessWindow();
+            sew.getPanel().setVisible(false);
+            sew.getPanel().removeAll();
+            sew.getPanel().add(panel.getPanel());
+            sew.getPanel().setVisible(true);
+            sew.getPanel().repaint();
             
         }
         if(e.getSource()==sew.getKaydet()){

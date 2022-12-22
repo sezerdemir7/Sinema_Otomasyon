@@ -20,9 +20,10 @@ private DefaultListModel model,modelseans;
 private JList list,listseans;
 private JScrollPane sp,sp2;
 private JLabel lSaat,tarih,salon,film,baslık,saat,Lucret;
-private JButton filmSec,kaydet,geri;
+private JButton filmSec,kaydet;
 private filmDAO flmdao;
 private SalonDAO slndao;
+private JButton anasayfa,geri,exit;
 
 
 
@@ -41,6 +42,7 @@ private SalonDAO slndao;
             this.panel.add(this.getCbsaat());
             this.panel.add(this.getSaat());
             this.panel.add(this.getKaydet());
+            this.panel.add(this.getAnasayfa());
             this.panel.add(this.getGeri());
             try {
                 this.panel.add(this.getList());
@@ -87,6 +89,47 @@ private SalonDAO slndao;
         }
         return Lucret;
     }
+    public JButton getAnasayfa() {
+        if(this.anasayfa==null){
+            this.anasayfa=new JButton("AnaSayfa");
+            this.anasayfa.setBounds(-15, 0, 140, 25);
+            this.anasayfa.setFont(this.getFn());
+            this.anasayfa.setBackground(Color.orange);
+            
+            
+        }
+        return anasayfa;
+    }
+
+    public void setAnasayfa(JButton anasayfa) {
+        this.anasayfa = anasayfa;
+    }
+
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(145, 0, 85, 25);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new SeansEkleWindowAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
+    public JButton getExit() {
+        return exit;
+    }
+
+    public void setExit(JButton exit) {
+        this.exit = exit;
+    }
+    
 
     public void setLucret(JLabel Lucret) {
         this.Lucret = Lucret;
@@ -274,20 +317,7 @@ private SalonDAO slndao;
         this.kaydet = kaydet;
     }
 
-    public JButton getGeri() {
-        if(this.geri==null){
-            this.geri=new JButton("Geri");
-            this.geri.setBounds(0, 0, 80, 25);
-            this.geri.setBackground(Color.MAGENTA);
-            this.geri.setFont(this.getFn());
-            this.geri.addActionListener(new SeansEkleWindowAction(this));
-        }
-        return geri;
-    }
-
-    public void setGeri(JButton geri) {
-        this.geri = geri;
-    }
+  
 
   
     
