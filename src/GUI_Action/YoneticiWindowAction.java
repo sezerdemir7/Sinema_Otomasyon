@@ -39,10 +39,13 @@ public class YoneticiWindowAction implements ActionListener {
                 if (bl == true) {
 
                     panel = new YöneticiProcessWindow();
-                    
-                    mw.getWindow().setContentPane(panel.getPanel());
-
-                    mw.getWindow().repaint();
+                    yw.getPanel().setVisible(false);
+                    yw.getPanel().removeAll();
+                    yw.getPanel().add(panel.getPanel());
+                    yw.getPanel().setVisible(true);
+                    yw.getPanel().repaint();
+//                  mw.getWindow().setContentPane(panel.getPanel());
+//                  mw.getWindow().repaint();
 
                 } else {
                     JOptionPane.showMessageDialog(yw.getPanel(), "Kullanıcı bilgileri Hatalı");

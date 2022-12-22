@@ -34,28 +34,49 @@ public class YöneticiProcessAction implements ActionListener {
         if (e.getSource() == ypw.getFilmEkle()) {
 
             panel = new FilmEkleWindow();
-            mw.getWindow().setContentPane(panel.getPanel());
-            mw.getWindow().repaint();
+            ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
 
         }
 
         if (e.getSource() == ypw.getSeansEkle()) {
             panel = new SeansEkleWİndow();
-            mw.getWindow().setContentPane(panel.getPanel());
-            mw.getWindow().repaint();
+            ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
+            
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
 
         }
         if(e.getSource()==ypw.getSalonEkle()){
             panel=new SalonEkleWindow();
-            mw.getWindow().setContentPane(panel.getPanel());
-            mw.getWindow().repaint();
+           // ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+           // ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
             
             
         }
         if(e.getSource()==ypw.getFilmSil()){
             panel=new RemoveWİndow();
-            mw.getWindow().setContentPane(panel.getPanel());
-            mw.getWindow().repaint();
+            ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
             
         }
 

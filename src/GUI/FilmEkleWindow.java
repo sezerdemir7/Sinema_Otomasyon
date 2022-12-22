@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.*;
 import javax.swing.JTextField;
+import GUI.YöneticiProcessWindow;
 
 
 public class FilmEkleWindow implements costumPanel{
@@ -16,6 +17,7 @@ public class FilmEkleWindow implements costumPanel{
     private JComboBox tür,katagory;
     private JButton ekle;
     private Font fn,fn2;
+    private JButton anasayfa,geri,exit;
     
 
     @Override
@@ -34,6 +36,8 @@ public class FilmEkleWindow implements costumPanel{
             this.panel.add(this.getSüre());
             this.panel.add(this.getBaslık());
             this.panel.add(this.getEkle());
+            this.panel.add(this.getAnasayfa());
+            this.panel.add(this.getGeri());
             this.panel.setLayout(null);
             this.panel.setBackground(Color.gray);
         }
@@ -43,6 +47,49 @@ public class FilmEkleWindow implements costumPanel{
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
+
+    public JButton getAnasayfa() {
+        if(this.anasayfa==null){
+            this.anasayfa=new JButton("AnaSayfa");
+            this.anasayfa.setBounds(-15, 0, 135, 25);
+            this.anasayfa.setFont(this.getFn());
+            this.anasayfa.setBackground(Color.orange);
+            
+            
+        }
+        return anasayfa;
+    }
+
+    public void setAnasayfa(JButton anasayfa) {
+        this.anasayfa = anasayfa;
+    }
+
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(140, 0, 75, 25);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new FilmEkleWindowAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
+    public JButton getExit() {
+        return exit;
+    }
+
+    public void setExit(JButton exit) {
+        this.exit = exit;
+    }
+    
+    
 
     public JButton getEkle() {
         if(this.ekle==null){

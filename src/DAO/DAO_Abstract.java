@@ -42,7 +42,8 @@ public abstract class DAO_Abstract {
     }
 
     public String[] sil(String dosya, String str) throws IOException {
-          File file=new File(dosya);
+        ArrayList list=new ArrayList();
+        File file=new File(dosya);
           if(!file.exists()){
               file.createNewFile();
           }
@@ -52,14 +53,28 @@ public abstract class DAO_Abstract {
           FileWriter fwr=new FileWriter(file,false);
           BufferedWriter bfw=new BufferedWriter(fwr);
           str=str+"&";
-          String line,tempLine="";
-          System.out.println(dosya);
+          String line="",tempLine="";
+          
           while((line=bfr.readLine())!=null){
               System.out.println(line);
+              if(line!=str){
+                  tempLine=tempLine+line;
+                 list.add(line);
+//                  
+              }
+              
+              
+              
               
           }
+          for(int i=0;i<list.size();i++){
+              System.out.println(list.get(i));
+              bfw.write((String) list.get(i));
+              bfw.newLine();
+          }
+          bfw.close();
+          System.out.println(tempLine);
           
-
         String[] liste = tempLine.split("&");
 
         return liste;

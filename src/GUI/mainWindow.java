@@ -25,81 +25,73 @@ public class mainWindow {
 
         this.getWindow();
 
-        this.getPanel().add(this.getBaslık());
-        this.getPanel().add(this.getBtnYntc());//yönetici giriş butonu
-        this.getPanel().add(this.getlYntc());//yonetici icon
-        this.getPanel().add(this.getlBiletci());//Biletci icon      
-        this.getPanel().add(this.getBtnBltci());//biletci girş butonu
-        this.getPanel().add(this.getLmusteri());//musteri icon
-        this.getPanel().add(this.getBtnMusteri());//musteri giriş butonu
-
     }
 
     public JFrame getWindow() {
         if (this.window == null) {
             this.window = new JFrame("Sinema Salonu Otomasyonu");
+            this.window.add(this.getPanel());
             this.window.setContentPane(this.getPanel());
             this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.window.setLayout(null);
-            this.window.add(this.getMb());
+            //this.window.add(this.getMb());
             this.window.setVisible(true);
-
+            this.window.setBackground(Color.gray);
             this.window.setSize(800, 600);
         }
         return window;
     }
 
-    public JMenuBar getMb() {
-        if (this.mb == null) {
-            this.mb = new JMenuBar();
-            this.mb.setBounds(0, 0, 800, 25);
-            this.mb.setVisible(true);
-            this.mb.add(this.getItem2());
-            this.mb.add(this.getItem1());
-
-        }
-        return mb;
-    }
-
-    public void setMb(JMenuBar mb) {
-        this.mb = mb;
-    }
-
-    public JMenu getItem1() {
-        if (this.item1 == null) {
-            item1 = new JMenu("EXİT");
-            this.item1.setBounds(0, 0, 150, 20);
-            this.item1.addActionListener(new MainWindowAction(this));
-
-        }
-        return item1;
-    }
-
-    public void setItem1(JMenu item1) {
-        this.item1 = item1;
-    }
-
-    public JMenu getItem2() {
-        if (this.item2 == null) {
-            this.item2 = new JMenu("Anasayfa");
-            this.item2.setBounds(0, 0, 100, 20);
-
-        }
-        return item2;
-    }
-
-    public void setItem2(JMenu item2) {
-        this.item2 = item2;
-    }
-
-    public JMenu getItem3() {
-        return item3;
-    }
-
-    public void setItem3(JMenu item3) {
-        this.item3 = item3;
-    }
-
+//    public JMenuBar getMb() {
+//        if (this.mb == null) {
+//            this.mb = new JMenuBar();
+//            this.mb.setBounds(0, 0, 800, 25);
+//            this.mb.setVisible(true);
+//            this.mb.add(this.getItem2());
+//            this.mb.add(this.getItem1());
+//
+//        }
+//        return mb;
+//    }
+//
+//    public void setMb(JMenuBar mb) {
+//        this.mb = mb;
+//    }
+//
+//    public JMenu getItem1() {
+//        if (this.item1 == null) {
+//            item1 = new JMenu("EXİT");
+//            this.item1.setBounds(0, 0, 150, 20);
+//            this.item1.addActionListener(new MainWindowAction(this));
+//
+//        }
+//        return item1;
+//    }
+//
+//    public void setItem1(JMenu item1) {
+//        this.item1 = item1;
+//    }
+//
+//    public JMenu getItem2() {
+//        if (this.item2 == null) {
+//            this.item2 = new JMenu("Anasayfa");
+//            this.item2.setBounds(0, 0, 100, 20);
+//
+//        }
+//        return item2;
+//    }
+//
+//    public void setItem2(JMenu item2) {
+//        this.item2 = item2;
+//    }
+//
+//    public JMenu getItem3() {
+//        return item3;
+//    }
+//
+//    public void setItem3(JMenu item3) {
+//        this.item3 = item3;
+//    }
     public void setWindow(JFrame window) {
         this.window = window;
     }
@@ -107,7 +99,14 @@ public class mainWindow {
     public JPanel getPanel() {
         if (this.panel == null) {
             this.panel = new JPanel();
-            this.getPanel().setSize(800, 600);
+            this.panel.setSize(800, 600);
+            this.getPanel().add(this.getBaslık());
+            this.getPanel().add(this.getBtnYntc());//yönetici giriş butonu
+            this.getPanel().add(this.getlYntc());//yonetici icon
+            this.getPanel().add(this.getlBiletci());//Biletci icon      
+            this.getPanel().add(this.getBtnBltci());//biletci girş butonu
+            this.getPanel().add(this.getLmusteri());//musteri icon
+            this.getPanel().add(this.getBtnMusteri());//musteri giriş butonu
             this.panel.setLayout(null);
             this.panel.setBackground(Color.GRAY);
         }

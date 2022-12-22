@@ -4,6 +4,8 @@ package GUI_Action;
 import DAO.filmDAO;
 import Entity.filmInfo;
 import GUI.FilmEkleWindow;
+import GUI.YöneticiProcessWindow;
+import GUI.costumPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -15,10 +17,13 @@ public class FilmEkleWindowAction implements ActionListener{
     private filmDAO film;
     private FilmEkleWindow few;
     private filmInfo f1;
+    private costumPanel panel;
+    private YöneticiProcessWindow ypw;
 
     public FilmEkleWindowAction(FilmEkleWindow few) {
         film=new filmDAO();
         f1=new filmInfo();
+        ypw=new YöneticiProcessWindow();
         this.few=few;
     }
     
@@ -37,6 +42,15 @@ public class FilmEkleWindowAction implements ActionListener{
             } catch (IOException ex) {
                 Logger.getLogger(FilmEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        if(e.getSource()==few.getGeri()){
+           panel=new YöneticiProcessWindow();
+           few.getPanel().setVisible(false);
+           few.getPanel().removeAll();
+           few.getPanel().add(panel.getPanel());
+           few.getPanel().setVisible(true);
+           few.getPanel().repaint();
+            
         }
     }
     
