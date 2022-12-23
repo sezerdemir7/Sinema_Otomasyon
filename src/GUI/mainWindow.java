@@ -38,6 +38,7 @@ public class mainWindow implements costumPanel{
             this.window.setLayout(null);
             //this.window.add(this.getMb());
             this.window.add(this.getExit());
+            this.window.setLocation(300, 80);
 //            this.window.add(this.getTp());
             this.window.setVisible(true);
             this.window.setBackground(Color.gray);

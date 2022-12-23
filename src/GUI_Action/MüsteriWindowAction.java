@@ -1,5 +1,6 @@
 package GUI_Action;
 
+import GUI.MüsteriProcessWindow;
 import GUI.MüsteriWindow;
 import GUI.costumPanel;
 import java.awt.event.ActionEvent;
@@ -18,7 +19,13 @@ public class MüsteriWindowAction implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==müw.getGrs()){
+           panel=new MüsteriProcessWindow();
            
+           müw.getPanel().setVisible(false);
+           müw.getPanel().removeAll();
+           müw.getPanel().add(panel.getPanel());
+           müw.getPanel().setVisible(true);
+           müw.getPanel().repaint();
         }
         
     }
