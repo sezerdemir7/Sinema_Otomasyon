@@ -133,8 +133,14 @@ public class mainWindow implements costumPanel{
 //    public void setItem3(JMenu item3) {
 //        this.item3 = item3;
 //    }
+
+    /**
+     *
+     * @return
+     */
     
 
+    @Override
     public JPanel getPanel() {
         if (this.panel == null) {
             this.panel = new JPanel();
@@ -232,7 +238,7 @@ public class mainWindow implements costumPanel{
             this.btnMusteri = new JButton("Müsteri Girişi");
             this.btnMusteri.setBounds(540, 320, 120, 40);
             this.btnMusteri.setBackground(Color.orange);
-            // this.btnMusteri.addActionListener((new mainWindow()));
+            this.btnMusteri.addActionListener(new MainWindowAction(this));
         }
         return btnMusteri;
     }

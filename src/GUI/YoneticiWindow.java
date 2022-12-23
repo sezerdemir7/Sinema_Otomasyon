@@ -28,7 +28,7 @@ public class YoneticiWindow implements costumPanel{
            
            this.panel.add(getBaslık());
            this.panel.add(this.getAd());
-           this.panel.add(getTad());
+           this.panel.add(this.getTad());
            this.panel.add(this.getSoyad());
            this.panel.add(this.getTsoyad());
            this.panel.add(this.getTlf());
