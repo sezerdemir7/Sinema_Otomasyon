@@ -1,6 +1,7 @@
 
 package GUI;
 
+import GUI_Action.MüsteriWindowAction;
 import java.awt.Color;
 import java.awt.*;
 import javax.swing.JButton;
@@ -31,6 +32,8 @@ public class MüsteriWindow implements costumPanel{
             this.panel.add(this.getFsoyad());
             this.panel.add(this.getFtlfon());
             this.panel.add(this.getBaslık());
+            this.panel.add(this.getGrs());
+            
             
             
             this.panel.setLayout(null);
@@ -146,6 +149,14 @@ public class MüsteriWindow implements costumPanel{
     }
 
     public JButton getGrs() {
+        if(this.grs==null){
+            this.grs=new JButton("Giriş Yap");
+            this.grs.setBounds(200, 350, 120, 45);
+            this.grs.setFont(this.getFn());
+           
+            this.grs.setBackground(Color.orange);
+            this.grs.addActionListener(new MüsteriWindowAction(this));
+        }
         return grs;
     }
 
