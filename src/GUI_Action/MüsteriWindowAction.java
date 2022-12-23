@@ -18,7 +18,7 @@ public class MüsteriWindowAction implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==müw.getGrs()){
-            System.out.println("ortak");
+           
         }
         
     }

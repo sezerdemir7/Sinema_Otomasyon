@@ -1,5 +1,6 @@
 package GUI;
 
+import DAO.filmDAO;
 import GUI_Action.FilmEkleWindowAction;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.*;
 import javax.swing.JTextField;
 import GUI.YöneticiProcessWindow;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class FilmEkleWindow implements costumPanel{
@@ -18,6 +22,10 @@ public class FilmEkleWindow implements costumPanel{
     private JButton ekle;
     private Font fn,fn2;
     private JButton anasayfa,geri,exit;
+    private DefaultListModel model;
+    private JList list;
+    private  JScrollPane sp;
+    private filmDAO flmdao;
     
 
     @Override
@@ -38,6 +46,11 @@ public class FilmEkleWindow implements costumPanel{
             this.panel.add(this.getEkle());
             this.panel.add(this.getAnasayfa());
             this.panel.add(this.getGeri());
+            try {
+                this.panel.add(this.getSp());
+            } catch (IOException ex) {
+                Logger.getLogger(FilmEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.panel.setLayout(null);
             this.panel.setBackground(Color.gray);
         }
@@ -46,6 +59,56 @@ public class FilmEkleWindow implements costumPanel{
 
     public void setPanel(JPanel panel) {
         this.panel = panel;
+    }
+    public JScrollPane getSp() throws IOException {
+        if(this.sp==null){
+            this.sp=new JScrollPane(this.getList());
+            this.sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+             this.sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            this.sp.setBounds(400, 150, 360, 150);
+        }
+        return sp;
+    }
+
+    public void setSp(JScrollPane sp) {
+        this.sp = sp;
+    }
+    public DefaultListModel getModel() throws IOException {
+        if(this.model==null){
+           
+             flmdao=new filmDAO();
+             String[] dizi1=flmdao.listele("class Entity.filmInfo.txt");
+            
+             
+            this.model=new DefaultListModel();
+            int i;
+            for( i=0;i<dizi1.length;i++){
+               
+               this.model.addElement(dizi1[i]); 
+               
+            }
+                
+            
+            
+        }
+        return model;
+    }
+
+    public void setModel(DefaultListModel model) {
+        this.model = model;
+    }
+
+    public JList getList() throws IOException {
+        if(this.list==null){
+            this.list = new JList(this.getModel());
+            this.list.setBounds(160, 370, 300, 100);
+          
+        }
+        return list;
+    }
+
+    public void setList(JList list) {
+        this.list = list;
     }
 
     public JButton getAnasayfa() {

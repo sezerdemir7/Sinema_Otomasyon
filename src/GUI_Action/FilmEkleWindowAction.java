@@ -42,6 +42,13 @@ public class FilmEkleWindowAction implements ActionListener{
             } catch (IOException ex) {
                 Logger.getLogger(FilmEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
             }
+            panel=new FilmEkleWindow();
+            
+            few.getPanel().setVisible(false);
+            few.getPanel().removeAll();
+            few.getPanel().add(panel.getPanel());
+            few.getPanel().setVisible(true);
+            few.getPanel().repaint();
            
         }
         if(e.getSource()==few.getGeri()){
