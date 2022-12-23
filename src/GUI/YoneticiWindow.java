@@ -17,6 +17,8 @@ public class YoneticiWindow implements costumPanel{
     private JTextField tad,tsoyad,tlfon;
     private JPasswordField sifre;
     private Font fn;
+    private JTabbedPane tp;
+  
     
     @Override
     public JPanel getPanel() {
@@ -32,6 +34,7 @@ public class YoneticiWindow implements costumPanel{
            this.panel.add(this.getTlf());
            this.panel.add(this.getTlfon());
            this.panel.add(this.getLsifre());
+           
            this.panel.add(this.getSifre());
             try {
                 this.panel.add(this.getGiris());
@@ -44,6 +47,7 @@ public class YoneticiWindow implements costumPanel{
         }
         return panel;
     }
+    
 
     public JButton getGiris() throws IOException {
         if(this.giris==null){

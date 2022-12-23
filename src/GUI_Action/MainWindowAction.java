@@ -23,13 +23,16 @@ public class MainWindowAction implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==mw.getBtnYntc()){
             panel=new YoneticiWindow();
+            
            mw.getPanel().setVisible(false);
            mw.getPanel().removeAll();
            mw.getPanel().add(panel.getPanel());
           // mw.getPanel().add(mw.getMb());
            mw.getPanel().setVisible(true);
+          
            mw.getPanel().repaint();
-           
+          // mw.getTp().setName("Yönetici Giriş");
+           // mw.getTp().add("Yönetici Giriş",this.panel.getPanel());
             
             
 //            mw.getWindow().setContentPane(panel.getPanel());

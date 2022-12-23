@@ -10,7 +10,7 @@ import javax.swing.*;
 public class mainWindow implements costumPanel{
 
     private JFrame window;
-    private JTabbedPane tp;
+//    private JTabbedPane tp;
     private JPanel panel;
     private JLabel lYntc, lBiletci, lmusteri;
     private JButton btnYntc, btnBltci, btnMusteri,exit;
@@ -32,13 +32,13 @@ public class mainWindow implements costumPanel{
     public JFrame getWindow() {
         if (this.window == null) {
             this.window = new JFrame("Sinema Salonu Otomasyonu");
-            //this.window.add(this.getPanel());
-            //this.window.setContentPane(this.getPanel());
+            this.window.add(this.getPanel());
+            this.window.setContentPane(this.getPanel());
             this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.window.setLayout(null);
             //this.window.add(this.getMb());
             this.window.add(this.getExit());
-            this.window.add(this.getTp());
+//            this.window.add(this.getTp());
             this.window.setVisible(true);
             this.window.setBackground(Color.gray);
             this.window.setSize(800, 600);
@@ -49,20 +49,21 @@ public class mainWindow implements costumPanel{
         this.window = window;
     }
 
-    public JTabbedPane getTp() {
-        if(this.tp==null){
-            yw=new YoneticiWindow();
-            this.tp=new JTabbedPane();
-            this.tp.setBounds(0, 0, 800, 600);
-            tp.add("Anasayfa",this.getPanel());
-            tp.add("Yönetici Giriş",yw.getPanel());
-        }
-        return tp;
-    }
-
-    public void setTp(JTabbedPane tp) {
-        this.tp = tp;
-    }
+//    public JTabbedPane getTp() {
+//        if(this.tp==null){
+//            yw=new YoneticiWindow();
+//            this.tp=new JTabbedPane();
+//            this.tp.setBounds(0, 0, 800, 600);
+//            this.tp.add("Anasayfa",this.getPanel());
+//            this.tp.setBackground(Color.red);
+//            ///tp.add("Yönetici Giriş",yw.getPanel());
+//        }
+//        return tp;
+//    }
+//
+//    public void setTp(JTabbedPane tp) {
+//        this.tp = tp;
+//    }
     
     
 
