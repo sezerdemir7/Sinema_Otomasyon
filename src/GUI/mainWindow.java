@@ -7,16 +7,18 @@ import java.awt.Image;
 
 import javax.swing.*;
 
-public class mainWindow {
+public class mainWindow implements costumPanel{
 
     private JFrame window;
+    private JTabbedPane tp;
     private JPanel panel;
     private JLabel lYntc, lBiletci, lmusteri;
-    private JButton btnYntc, btnBltci, btnMusteri;
+    private JButton btnYntc, btnBltci, btnMusteri,exit;
     private JLabel baslık;
     private JMenuBar mb;
     private JMenu item3;
     private JMenu item2, item1;
+    private YoneticiWindow yw;
     Image mg = new ImageIcon(mainWindow.class.getResource("/admin2.png")).getImage();
     Image mg2 = new ImageIcon(mainWindow.class.getResource("/biletci.png")).getImage();
     Image mg3 = new ImageIcon(mainWindow.class.getResource("/musteri4.png")).getImage();
@@ -30,17 +32,55 @@ public class mainWindow {
     public JFrame getWindow() {
         if (this.window == null) {
             this.window = new JFrame("Sinema Salonu Otomasyonu");
-            this.window.add(this.getPanel());
-            this.window.setContentPane(this.getPanel());
+            //this.window.add(this.getPanel());
+            //this.window.setContentPane(this.getPanel());
             this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.window.setLayout(null);
             //this.window.add(this.getMb());
+            this.window.add(this.getExit());
+            this.window.add(this.getTp());
             this.window.setVisible(true);
             this.window.setBackground(Color.gray);
             this.window.setSize(800, 600);
         }
         return window;
     }
+    public void setWindow(JFrame window) {
+        this.window = window;
+    }
+
+    public JTabbedPane getTp() {
+        if(this.tp==null){
+            yw=new YoneticiWindow();
+            this.tp=new JTabbedPane();
+            this.tp.setBounds(0, 0, 800, 600);
+            tp.add("Anasayfa",this.getPanel());
+            tp.add("Yönetici Giriş",yw.getPanel());
+        }
+        return tp;
+    }
+
+    public void setTp(JTabbedPane tp) {
+        this.tp = tp;
+    }
+    
+    
+
+    public JButton getExit() {
+        if(this.exit==null){
+            this.exit=new JButton("Exit");
+            this.exit.setBounds(700, 0, 100, 35);
+            this.exit.setBackground(Color.red);
+            
+        }
+        return exit;
+    }
+
+    public void setExit(JButton exit) {
+        this.exit = exit;
+    }
+    
+    
 
 //    public JMenuBar getMb() {
 //        if (this.mb == null) {
@@ -92,9 +132,7 @@ public class mainWindow {
 //    public void setItem3(JMenu item3) {
 //        this.item3 = item3;
 //    }
-    public void setWindow(JFrame window) {
-        this.window = window;
-    }
+    
 
     public JPanel getPanel() {
         if (this.panel == null) {

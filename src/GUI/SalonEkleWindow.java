@@ -17,7 +17,7 @@ public class SalonEkleWindow implements costumPanel{
     private JTextField no;
     private JComboBox kat;
     private Font fn,fn2;
-    private JButton kaydet;
+    private JButton kaydet,anasayfa,geri;
         
     @Override
     public JPanel getPanel() {
@@ -29,6 +29,16 @@ public class SalonEkleWindow implements costumPanel{
             this.panel.add(this.getLkat());
             this.panel.add(this.getNo());
             this.panel.add(this.getKat());
+            try {
+                this.panel.add(this.getAnasayfa());
+            } catch (IOException ex) {
+                Logger.getLogger(SalonEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                this.panel.add(this.getGeri());
+            } catch (IOException ex) {
+                Logger.getLogger(SalonEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
                 this.panel.add(this.getKaydet());
             } catch (IOException ex) {
@@ -46,6 +56,38 @@ public class SalonEkleWindow implements costumPanel{
 
     public void setPanel(JPanel panel) {
         this.panel = panel;
+    }
+    public JButton getAnasayfa() throws IOException {
+        if(this.anasayfa==null){
+            this.anasayfa=new JButton("AnaSayfa");
+            this.anasayfa.setBounds(-15, 0, 140, 25);
+            this.anasayfa.setFont(this.getFn());
+            this.anasayfa.setBackground(Color.orange);
+            this.anasayfa.addActionListener(new SalonEkleWindowAction(this));
+            
+        }
+        return anasayfa;
+    }
+
+    public void setAnasayfa(JButton anasayfa) {
+        this.anasayfa = anasayfa;
+    }
+
+    public JButton getGeri() throws IOException {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(145, 0, 85, 25);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new SalonEkleWindowAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JLabel getBaslık() {
