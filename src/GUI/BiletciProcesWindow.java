@@ -24,7 +24,7 @@ public class BiletciProcesWindow implements costumPanel {
 
     private JPanel panel;
     private JLabel müşteriadi, salonseç, koltukseç, biletsatis;
-    private JButton giris;
+    private JButton giris,yenile;
     private Font fn;
     private JTextField müsteriisim;
     private JList list;
@@ -45,6 +45,8 @@ public class BiletciProcesWindow implements costumPanel {
             this.panel.add(this.getSalonseç());
             this.panel.add(this.getKoltukseç());
             this.panel.add(this.getMüsteriisim());
+            this.panel.add(this.getYenile());
+                    
             try {
                 this.panel.add(this.getSp());
             } catch (IOException ex) {
@@ -64,6 +66,23 @@ public class BiletciProcesWindow implements costumPanel {
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
+
+    public JButton getYenile() {
+        if(this.yenile==null){
+            this.yenile=new JButton("Yenile");
+            this.yenile.setBounds(690, 0, 100, 35);
+            this.yenile.setBackground(Color.ORANGE);
+            this.yenile.setFont(this.getFn());
+            this.yenile.addActionListener(new BiletciProcessAction(this));
+        }
+        return yenile;
+    }
+
+    public void setYenile(JButton yenile) {
+        this.yenile = yenile;
+    }
+    
+    
     public JButton[] getButons() {
         if(this.butons==null){
             int x=50;

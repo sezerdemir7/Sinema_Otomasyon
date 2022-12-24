@@ -27,58 +27,70 @@ public class BiletciProcessAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == bpw.getGiris()) {
-            System.out.println("Selam");
+
             try {
                 if (bpcontrol.control(bpw) == true) {
-
+                    for (int j = 0; j < bpw.getButons().length; j++) {
+                        if (bpw.getButons()[j].getBackground() == Color.red) {
+                            String a = bpw.getMüsteriisim().getText();
+                            JOptionPane.showMessageDialog(bpw.getPanel(), ("                                                                      Bilet Bilgileri       \n" + "İzleyici Bilgileri:" + a + "\n" + "Seçilen Seans:" + bpw.getList().getSelectedValue().toString() + " \nKoltuk No: " + bpw.getButons()[j].getText()));
+                        }
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(bpw.getPanel(), "Lütfen Ad Soyad Giriniz!");
+                    JOptionPane.showMessageDialog(bpw.getPanel(), "Müşteri İsmi Girin, Seans ve Koltuk Seçiniz!!");
 
                 }
             } catch (IOException ex) {
                 Logger.getLogger(BiletciProcessAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        int sayac=0;
-        for(int i = 0; i < bpw.getButons().length; i++){
-            if(bpw.getButons()[i].getBackground()==Color.red){
+
+        int sayac = 0;
+        for (int i = 0; i < bpw.getButons().length; i++) {
+            if (bpw.getButons()[i].getBackground() == Color.red) {
                 sayac++;
             }
         }
-        
-        if(sayac==0){
-            
-        for (int i = 0; i < bpw.getButons().length; i++) {
-            
-            
-            try {
-                if (bpcontrol.control(bpw) == false) {
 
-                    if (e.getSource() == bpw.getButons()[i]) {
-                        
-                        panel = new BiletciProcesWindow();
+        if (sayac == 0) {
 
-                        //mpw.getPanel().remove(mpw.getButons()[2]);
-                        bpw.getButons()[i].setBackground(red);
-                        bpw.getPanel().setVisible(false);
-                        bpw.getPanel().setVisible(true);
-                        bpw.getPanel();
-                        String s = bpw.getButons()[i].getName();
-                        System.err.println(s);
-                      
+            for (int i = 0; i < bpw.getButons().length; i++) {
 
+                try {
+                    if (bpcontrol.control(bpw) == false) {
+
+                        if (e.getSource() == bpw.getButons()[i]) {
+
+                            panel = new BiletciProcesWindow();
+
+                            //mpw.getPanel().remove(mpw.getButons()[2]);
+                            bpw.getButons()[i].setBackground(red);
+                            bpw.getPanel().setVisible(false);
+                            bpw.getPanel().setVisible(true);
+                            bpw.getPanel();
+                            String s = bpw.getButons()[i].getName();
+                            System.err.println(s);
+
+                        }
+                    } else {
+
+                        break;
                     }
-                } else {
-
-                    break;
+                } catch (IOException ex) {
+                    Logger.getLogger(BiletciProcessAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(BiletciProcessAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        }
         
+        
+        if(e.getSource()==bpw.getYenile()){
+            panel=new BiletciProcesWindow();
+            bpw.getPanel().setVisible(false);
+            bpw.getPanel().removeAll();
+            bpw.getPanel().add(panel.getPanel());
+            bpw.getPanel().setVisible(true);
+            bpw.getPanel().repaint();
+        }
 
     }
 

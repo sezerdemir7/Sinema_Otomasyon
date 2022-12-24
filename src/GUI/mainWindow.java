@@ -7,13 +7,13 @@ import java.awt.Image;
 import javax.swing.JTabbedPane;
 import javax.swing.*;
 
-public class mainWindow implements costumPanel{
+public class mainWindow implements costumPanel {
 
     private JFrame window;
 //    private JTabbedPane tp;
     private JPanel panel;
     private JLabel lYntc, lBiletci, lmusteri;
-    private JButton btnYntc, btnBltci, btnMusteri,exit;
+    private JButton btnYntc, btnBltci, btnMusteri, exit;
     private JLabel baslık;
     private JMenuBar mb;
     private JMenu item3;
@@ -41,42 +41,41 @@ public class mainWindow implements costumPanel{
             this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.window.setLayout(null);
             //this.window.add(this.getMb());
-           // this.window.add(this.getExit());
-           this.window.add(this.getTp()); 
-           this.window.setLocation(300, 80);
-            
+            // this.window.add(this.getExit());
+            this.window.add(this.getTp());
+            this.window.setLocation(300, 80);
+
             this.window.setVisible(true);
             this.window.setBackground(Color.gray);
             this.window.setSize(800, 600);
         }
         return window;
     }
+
     public void setWindow(JFrame window) {
         this.window = window;
     }
 
     public JTabbedPane getTp() {
-        if(this.tp==null){
-            mw=new mainWindow();
-            yw=new YoneticiWindow();
-            bw=new BiletciWindow();
-            müw=new MüsteriWindow();
-            this.tp=new JTabbedPane();
+        if (this.tp == null) {
+            mw = new mainWindow();
+            yw = new YoneticiWindow();
+            bw = new BiletciWindow();
+            müw = new MüsteriWindow();
+            this.tp = new JTabbedPane();
             this.tp.setBounds(0, 0, 800, 600);
             this.getPanel().removeAll();
             this.getPanel().setVisible(false);
             this.getPanel().setVisible(true);
             this.getPanel().repaint();
-            this.tp.add("Anasayfa",mw.getPanel());
-            
-            this.tp.add("Yönetici Giriş",yw.getPanel());
+            this.tp.add("Anasayfa", mw.getPanel());
+
+            this.tp.add("Yönetici Giriş", yw.getPanel());
             this.tp.setBackground(Color.YELLOW);
-            this.tp.add("Bilet Satış Danışmanı",bw.getPanel());
-            this.tp.add("Müşteri Girişi",müw.getPanel());
+            this.tp.add("Bilet Satış Danışmanı", bw.getPanel());
+            this.tp.add("Müşteri Girişi", müw.getPanel());
             this.tp.add(this.getExit());
-            
-           
-                
+
         }
         return tp;
     }
@@ -84,15 +83,13 @@ public class mainWindow implements costumPanel{
     public void setTp(JTabbedPane tp) {
         this.tp = tp;
     }
-    
-    
 
     public JButton getExit() {
-        if(this.exit==null){
-            this.exit=new JButton("Exit");
+        if (this.exit == null) {
+            this.exit = new JButton("Exit");
             this.exit.setBounds(700, 0, 100, 35);
             this.exit.setBackground(Color.red);
-            
+
         }
         return exit;
     }
@@ -100,8 +97,6 @@ public class mainWindow implements costumPanel{
     public void setExit(JButton exit) {
         this.exit = exit;
     }
-    
-    
 
 //    public JMenuBar getMb() {
 //        if (this.mb == null) {
@@ -153,13 +148,10 @@ public class mainWindow implements costumPanel{
 //    public void setItem3(JMenu item3) {
 //        this.item3 = item3;
 //    }
-
     /**
      *
      * @return
      */
-    
-
     @Override
     public JPanel getPanel() {
         if (this.panel == null) {
@@ -224,9 +216,13 @@ public class mainWindow implements costumPanel{
 
     public JButton getBtnYntc() {
         if (this.btnYntc == null) {
+             this.btnYntc = new JButton("Yönetici Girişi");
 
-            this.btnYntc = new JButton("Yönetici Girişi");
+            this.btnYntc.setBorderPainted(false);
+            this.btnYntc.setContentAreaFilled(false);
+            this.btnYntc.setOpaque(true);
 
+           
             this.btnYntc.setBounds(93, 320, 120, 40);
             this.btnYntc.setBackground(Color.orange);
             this.btnYntc.addActionListener(new MainWindowAction(this));
