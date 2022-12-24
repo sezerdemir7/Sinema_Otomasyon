@@ -65,8 +65,6 @@ public class MüsteriProcessAction implements ActionListener {
 
                     if (e.getSource() == mpw.getButons()[i]) {
                         panel = new MüsteriProcessWindow();
-
-                        //mpw.getPanel().remove(mpw.getButons()[2]);
                         mpw.getButons()[i].setBackground(red);
                         mpw.getPanel().setVisible(false);
                         mpw.getPanel().setVisible(true);
@@ -88,7 +86,7 @@ public class MüsteriProcessAction implements ActionListener {
         try {
             if (e.getSource() == mpw.getGeri()) {
                 panel = new MüsteriWindow();
-                
+
                 mpw.getPanel().setVisible(false);
                 mpw.getPanel().removeAll();
                 mpw.getPanel().add(panel.getPanel());

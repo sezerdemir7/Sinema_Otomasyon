@@ -5,6 +5,7 @@
 package GUI;
 
 import DAO.SeansDAO;
+import GUI_Action.BiletciProcessAction;
 import GUI_Action.YoneticiWindowAction;
 import java.awt.Color;
 import java.awt.Font;
@@ -70,20 +71,22 @@ public class BiletciProcesWindow implements costumPanel {
             butons=new JButton[20];
             for(int i=0;i<10;i++){
                 this.butons[i]=new JButton(""+(i+1));
+                this.butons[i].setName(""+(i+1));
                 
                 this.butons[i].setBounds(x, 340, 70, 35);
                 this.butons[i].setBackground(Color.cyan);
                 this.butons[i].setFont(this.getFn());
-               // this.butons[i].addActionListener(new MüsteriProcessAction(this));
+                this.butons[i].addActionListener(new BiletciProcessAction(this));
                 x=x+70;
             }
             x=50;
             for(int i=10;i<20;i++){
                 this.butons[i]=new JButton(""+(i+1));
-                
+                 this.butons[i].setName(""+(i+1));
                 this.butons[i].setBounds(x, 400, 70, 35);
                 this.butons[i].setBackground(Color.cyan);
                 this.butons[i].setFont(this.getFn());
+                 this.butons[i].addActionListener(new BiletciProcessAction(this));
                 x=x+70;
             }
             
@@ -214,7 +217,7 @@ public class BiletciProcesWindow implements costumPanel {
             this.giris.setBounds(250, 470, 150, 40);
             this.giris.setBackground(Color.ORANGE);
             this.giris.setFont(this.getFn());
-            // this.giris.addActionListener(new YoneticiWindowAction(this));
+             this.giris.addActionListener(new BiletciProcessAction(this));
         }
         return giris;
     }
