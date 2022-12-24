@@ -82,10 +82,10 @@ public class BiletciWindow implements costumPanel{
 
     public JLabel getBaslık() {
         if(this.baslık==null){
-            baslık=new JLabel("Biletci Girişi");
+            baslık=new JLabel("Bilet Satış Danışmanı Girişi");
             Font f2=new Font("",Font.ITALIC,40);
             
-            this.baslık.setBounds(250, 50, 300, 50);
+            this.baslık.setBounds(150, 50, 500, 50);
             this.baslık.setFont(f2);
             this.baslık.setForeground(Color.white);
         }

@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import DAO.müsteriDAO;
 import Entity.musteri;
+import GUI.MüsteriWindow;
 
 public class MüsteriProcessAction implements ActionListener {
 
@@ -20,12 +21,12 @@ public class MüsteriProcessAction implements ActionListener {
     private costumPanel panel;
     private müsteriDAO mdao;
     private MüsteriProcessWindow mpw;
-   private musteri m1;
+    private musteri m1;
 
     public MüsteriProcessAction(MüsteriProcessWindow mpw) {
         mdao = new müsteriDAO();
         mwc = new MüsteriProcessWindowController();
-        
+
         this.mpw = mpw;
     }
 
@@ -42,9 +43,9 @@ public class MüsteriProcessAction implements ActionListener {
                 } else {
                     for (int j = 0; j < mpw.getButons().length; j++) {
                         if (mpw.getButons()[j].getBackground() == Color.red) {
-                           String[] a=mdao.listele("class Entity.musteri.txt");
-                          JOptionPane.showMessageDialog(mpw.getPanel(),("                                                                      Bilet Bilgileri       \n"+"İzleyici Bilgileri:"+a[a.length-1]+"\n"+"Seçilen Seans:"+mpw.getList().getSelectedValue().toString()+" \nKoltuk No: "+mpw.getButons()[j].getText())); 
-                            
+                            String[] a = mdao.listele("class Entity.musteri.txt");
+                            JOptionPane.showMessageDialog(mpw.getPanel(), ("                                                                      Bilet Bilgileri       \n" + "İzleyici Bilgileri:" + a[a.length - 1] + "\n" + "Seçilen Seans:" + mpw.getList().getSelectedValue().toString() + " \nKoltuk No: " + mpw.getButons()[j].getText()));
+
                         }
                     }
 //                      String[] a=mdao.listele("class Entity.musteri.txt");
@@ -73,25 +74,30 @@ public class MüsteriProcessAction implements ActionListener {
                         String s = mpw.getButons()[i].getName();
                         System.err.println(s);
                         sayac++;
-//
-//            mpw.getPanel().setVisible(false);
-//            mpw.getPanel().removeAll();
-//            mpw.getPanel().add(panel.getPanel());
-//             mpw.getButons()[2].setBackground(Color.red);
-//            mpw.getButons()[2].setVisible(false);
-//            System.out.println("hello");
-//            mpw.getPanel().setVisible(true);
-//
 
                     }
                 } else {
-                    //JOptionPane.showMessageDialog(mpw.getPanel(), "Birden Fazla Koltuk Seçemezsiniz");
+
                     break;
                 }
             } catch (IOException ex) {
                 Logger.getLogger(MüsteriProcessAction.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        }
+        try {
+            if (e.getSource() == mpw.getGeri()) {
+                panel = new MüsteriWindow();
+                
+                mpw.getPanel().setVisible(false);
+                mpw.getPanel().removeAll();
+                mpw.getPanel().add(panel.getPanel());
+                mpw.getPanel().setVisible(true);
+                mpw.getPanel().repaint();
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MüsteriProcessAction.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

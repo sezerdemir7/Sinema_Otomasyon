@@ -4,7 +4,7 @@ import GUI_Action.MainWindowAction;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-
+import javax.swing.JTabbedPane;
 import javax.swing.*;
 
 public class mainWindow implements costumPanel{
@@ -19,6 +19,10 @@ public class mainWindow implements costumPanel{
     private JMenu item3;
     private JMenu item2, item1;
     private YoneticiWindow yw;
+    private JTabbedPane tp;
+    private BiletciWindow bw;
+    private MüsteriWindow müw;
+    private mainWindow mw;
     Image mg = new ImageIcon(mainWindow.class.getResource("/admin2.png")).getImage();
     Image mg2 = new ImageIcon(mainWindow.class.getResource("/biletci.png")).getImage();
     Image mg3 = new ImageIcon(mainWindow.class.getResource("/musteri4.png")).getImage();
@@ -37,9 +41,10 @@ public class mainWindow implements costumPanel{
             this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.window.setLayout(null);
             //this.window.add(this.getMb());
-            this.window.add(this.getExit());
-            this.window.setLocation(300, 80);
-//            this.window.add(this.getTp());
+           // this.window.add(this.getExit());
+           this.window.add(this.getTp()); 
+           this.window.setLocation(300, 80);
+            
             this.window.setVisible(true);
             this.window.setBackground(Color.gray);
             this.window.setSize(800, 600);
@@ -50,21 +55,33 @@ public class mainWindow implements costumPanel{
         this.window = window;
     }
 
-//    public JTabbedPane getTp() {
-//        if(this.tp==null){
-//            yw=new YoneticiWindow();
-//            this.tp=new JTabbedPane();
-//            this.tp.setBounds(0, 0, 800, 600);
-//            this.tp.add("Anasayfa",this.getPanel());
-//            this.tp.setBackground(Color.red);
-//            ///tp.add("Yönetici Giriş",yw.getPanel());
-//        }
-//        return tp;
-//    }
-//
-//    public void setTp(JTabbedPane tp) {
-//        this.tp = tp;
-//    }
+    public JTabbedPane getTp() {
+        if(this.tp==null){
+            mw=new mainWindow();
+            yw=new YoneticiWindow();
+            bw=new BiletciWindow();
+            müw=new MüsteriWindow();
+            this.tp=new JTabbedPane();
+            this.tp.setBounds(0, 0, 800, 600);
+            this.getPanel().removeAll();
+            this.getPanel().setVisible(false);
+            this.getPanel().setVisible(true);
+            this.getPanel().repaint();
+            this.tp.add("Anasayfa",mw.getPanel());
+            
+            this.tp.add("Yönetici Giriş",yw.getPanel());
+            this.tp.setBackground(Color.YELLOW);
+            this.tp.add("Bilet Satış Danışmanı",bw.getPanel());
+            this.tp.add("Müşteri Girişi",müw.getPanel());
+           
+                
+        }
+        return tp;
+    }
+
+    public void setTp(JTabbedPane tp) {
+        this.tp = tp;
+    }
     
     
 

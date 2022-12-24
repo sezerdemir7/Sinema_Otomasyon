@@ -5,6 +5,8 @@ import GUI_Action.MüsteriProcessAction;
 import GUI_Action.MüsteriWindowAction;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,18 +15,20 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.*;
+import javax.swing.text.Position;
 
 public class MüsteriProcessWindow implements costumPanel {
 
     private JPanel panel;
-    private JLabel Lseans, Lkoltuk, baslık;
+    private JLabel Lseans, Lkoltuk, baslık,ara;
     private DefaultListModel model;
     private JList list;
     private JScrollPane sp;
     private Font fn, fn2;
     private SeansDAO seansdao;
     private JButton[] butons;
-    private JButton bilet;
+    private JButton bilet,anasayfa,geri;
+    private JTextField searchbox;
 
     @Override
     public JPanel getPanel() {
@@ -35,6 +39,16 @@ public class MüsteriProcessWindow implements costumPanel {
             this.panel.add(this.getBaslık());
             this.panel.add(this.getLkoltuk());
             this.panel.add(this.getBilet());
+            try {
+                this.panel.add(this.getAnasayfa());
+            } catch (IOException ex) {
+                Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                this.panel.add(this.getGeri());
+            } catch (IOException ex) {
+                Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             for(int j=0;j<this.getButons().length;j++){
                 this.panel.add(this.getButons()[j]);
             }
@@ -45,12 +59,99 @@ public class MüsteriProcessWindow implements costumPanel {
             } catch (IOException ex) {
                 Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            this.panel.add(this.getAra());
+            this.panel.add(this.getSearchbox());
             this.panel.setBackground(Color.gray);
             this.panel.setLayout(null);
         }
         return panel;
     }
+
+    public JTextField getSearchbox() {
+        if(this.searchbox==null){
+            this.searchbox=new JTextField();
+            this.searchbox.setBounds(100, 50, 100, 35);
+             this.searchbox.addKeyListener(new KeyAdapter() {
+                 @Override
+                 public void keyReleased(KeyEvent e) {
+
+                     try {
+                         String text = "" + e.getKeyChar();
+                         StringBuilder buffer = new StringBuilder();
+                         buffer.append(text);
+                         String strbuf = buffer.toString();
+                         
+                         int index = getList().getNextMatch(strbuf, 0, Position.Bias.Forward);
+                         //System.out.println(index);
+                         
+                         getList().setSelectedIndex(index);
+                         
+                     } catch (IOException ex) {
+                         Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+            }
+      });
+        }
+        return searchbox;
+    }
+
+    public void setSearchbox(JTextField searchbox) {
+        this.searchbox = searchbox;
+    }
+
+    public JLabel getAra() {
+        if(this.ara==null){
+            this.ara=new JLabel("Ara:");
+            this.ara.setBounds(45, 50, 50, 45);
+            this.ara.setFont(this.getFn());
+            this.ara.setForeground(Color.white);
+            
+        }
+        return ara;
+    }
+
+    public void setAra(JLabel ara) {
+        this.ara = ara;
+    }
+    
+    
+    
+    
+    
+    public JButton getAnasayfa() throws IOException {
+        if(this.anasayfa==null){
+            this.anasayfa=new JButton("AnaSayfa");
+            this.anasayfa.setBounds(-15, 0, 150, 25);
+            this.anasayfa.setFont(this.getFn());
+            this.anasayfa.setBackground(Color.orange);
+            this.anasayfa.addActionListener(new MüsteriProcessAction(this));
+            
+        }
+        return anasayfa;
+    }
+    
+    public void setAnasayfa(JButton anasayfa) {
+        this.anasayfa = anasayfa;
+    }
+
+    public JButton getGeri() throws IOException {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(715, 0, 85, 25);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new MüsteriProcessAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+    
+   
 
     public JButton[] getButons() {
         if(this.butons==null){
