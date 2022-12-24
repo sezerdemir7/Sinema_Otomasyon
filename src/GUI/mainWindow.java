@@ -217,11 +217,6 @@ public class mainWindow implements costumPanel {
     public JButton getBtnYntc() {
         if (this.btnYntc == null) {
              this.btnYntc = new JButton("Yönetici Girişi");
-
-            this.btnYntc.setBorderPainted(false);
-            this.btnYntc.setContentAreaFilled(false);
-            this.btnYntc.setOpaque(true);
-
            
             this.btnYntc.setBounds(93, 320, 120, 40);
             this.btnYntc.setBackground(Color.orange);
