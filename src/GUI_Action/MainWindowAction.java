@@ -1,5 +1,6 @@
 package GUI_Action;
 
+import GUI.BiletciWindow;
 import GUI.MüsteriWindow;
 import GUI.YoneticiWindow;
 import GUI.costumPanel;
@@ -24,7 +25,7 @@ public class MainWindowAction implements ActionListener {
             mw.getPanel().setVisible(false);
             mw.getPanel().removeAll();
             mw.getPanel().add(panel.getPanel());
-            
+
             mw.getPanel().setVisible(true);
 
             mw.getPanel().repaint();
@@ -36,6 +37,14 @@ public class MainWindowAction implements ActionListener {
 //            mw.getWindow().repaint();
         }
         if (e.getSource() == mw.getBtnBltci()) {
+           
+            panel = new BiletciWindow();
+            
+            mw.getPanel().setVisible(false);
+            mw.getPanel().removeAll();
+            mw.getPanel().add(panel.getPanel());
+            mw.getPanel().setVisible(true);
+            mw.getPanel().repaint();
 
         }
         if (e.getSource() == mw.getBtnMusteri()) {
@@ -43,7 +52,7 @@ public class MainWindowAction implements ActionListener {
             mw.getPanel().setVisible(false);
             mw.getPanel().removeAll();
             mw.getPanel().add(panel.getPanel());
-             mw.getPanel().setVisible(true);
+            mw.getPanel().setVisible(true);
             mw.getPanel().repaint();
 
         }

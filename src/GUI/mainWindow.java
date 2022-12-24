@@ -225,7 +225,7 @@ public class mainWindow implements costumPanel{
             this.btnBltci = new JButton("Biletci Girişi");
             this.btnBltci.setBackground(Color.orange);
             this.btnBltci.setBounds(320, 320, 120, 40);
-            // this.btnBltci.addActionListener((new mainWindow()));
+            this.btnBltci.addActionListener((new MainWindowAction(this)));
         }
         return btnBltci;
     }

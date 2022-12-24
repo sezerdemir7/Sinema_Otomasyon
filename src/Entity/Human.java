@@ -33,7 +33,7 @@ public abstract class Human {
 
     @Override
     public String toString() {
-        return   ad +  " " + soyad + " " + tlfon ;
+        return   ad +  " " + soyad + " " + tlfon +"&";
     }
 
     

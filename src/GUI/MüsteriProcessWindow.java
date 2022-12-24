@@ -2,6 +2,7 @@ package GUI;
 
 import DAO.SeansDAO;
 import GUI_Action.MüsteriProcessAction;
+import GUI_Action.MüsteriWindowAction;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class MüsteriProcessWindow implements costumPanel {
     private Font fn, fn2;
     private SeansDAO seansdao;
     private JButton[] butons;
+    private JButton bilet;
 
     @Override
     public JPanel getPanel() {
@@ -32,6 +34,7 @@ public class MüsteriProcessWindow implements costumPanel {
             this.panel.add(this.getLseans());
             this.panel.add(this.getBaslık());
             this.panel.add(this.getLkoltuk());
+            this.panel.add(this.getBilet());
             for(int j=0;j<this.getButons().length;j++){
                 this.panel.add(this.getButons()[j]);
             }
@@ -51,11 +54,12 @@ public class MüsteriProcessWindow implements costumPanel {
 
     public JButton[] getButons() {
         if(this.butons==null){
-            int x=70;
-          
+            int x=50;
+         
             butons=new JButton[20];
             for(int i=0;i<10;i++){
                 this.butons[i]=new JButton(""+(i+1));
+                this.butons[i].setName(""+(i+1));
                 
                 this.butons[i].setBounds(x, 320, 70, 35);
                 this.butons[i].setBackground(Color.cyan);
@@ -63,13 +67,15 @@ public class MüsteriProcessWindow implements costumPanel {
                 this.butons[i].addActionListener(new MüsteriProcessAction(this));
                 x=x+70;
             }
-            x=70;
+            x=50;
             for(int i=10;i<20;i++){
                 this.butons[i]=new JButton(""+(i+1));
-                
+                 this.butons[i].setName(""+(i+1));
+                 
                 this.butons[i].setBounds(x, 380, 70, 35);
                 this.butons[i].setBackground(Color.cyan);
                 this.butons[i].setFont(this.getFn());
+                this.butons[i].addActionListener(new MüsteriProcessAction(this));
                 x=x+70;
             }
             
@@ -160,6 +166,22 @@ public class MüsteriProcessWindow implements costumPanel {
     public void setLkoltuk(JLabel Lkoltuk) {
         this.Lkoltuk = Lkoltuk;
     }
+
+    public JButton getBilet() {
+        if(this.bilet==null){
+            this.bilet=new JButton("Bilet Yazdır");
+            this.bilet.setBounds(300, 450, 170, 45);
+            this.bilet.setFont(this.getFn());
+            this.bilet.setBackground(Color.ORANGE);
+            this.bilet.addActionListener(new MüsteriProcessAction(this));
+        }
+        return bilet;
+    }
+
+    public void setBilet(JButton bilet) {
+        this.bilet = bilet;
+    }
+    
 
     public JLabel getBaslık() {
         if(this.baslık==null){

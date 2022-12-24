@@ -17,6 +17,7 @@ public class MüsteriWindow implements costumPanel{
     private JTextField fad,fsoyad,ftlfon;
     private Font fn,fn2;
     
+    
     private JButton grs;
 
     @Override
@@ -104,7 +105,7 @@ public class MüsteriWindow implements costumPanel{
 
     public JTextField getFad() {
         if(this.fad==null){
-            this.fad=new JTextField();
+            this.fad=new JTextField(null);
             this.fad.setBounds(150, 143, 140, 35);
             this.fad.setFont(this.getFn());
             
@@ -119,7 +120,7 @@ public class MüsteriWindow implements costumPanel{
 
     public JTextField getFsoyad() {
          if(this.fsoyad==null){
-            this.fsoyad=new JTextField();
+            this.fsoyad=new JTextField(null);
             this.fsoyad.setBounds(150, 198, 140, 35);
             this.fsoyad.setFont(this.getFn());
             
@@ -135,7 +136,7 @@ public class MüsteriWindow implements costumPanel{
 
     public JTextField getFtlfon() {
          if(this.ftlfon==null){
-            this.ftlfon=new JTextField();
+            this.ftlfon=new JTextField(null);
             this.ftlfon.setBounds(150, 253, 140, 35);
             this.ftlfon.setFont(this.getFn());
             
