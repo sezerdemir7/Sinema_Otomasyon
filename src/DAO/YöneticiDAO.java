@@ -3,79 +3,79 @@ package DAO;
 import java.io.*;
 import Entity.yoneticiInfo;
 
-public class YöneticiDAO {
+public class YöneticiDAO extends DAO_Abstract{
 
-//    private File f;
-//    private FileReader fr;
-//    private BufferedReader br;
-//    private BufferedWriter bw;
-//    private FileWriter fw; 
-    String dosya = "yönetici.txt";
-    File f = new File(dosya);
-    FileReader fr = new FileReader(f);
-    BufferedReader br = new BufferedReader(fr);
-    FileWriter fw = new FileWriter(f);
-
-    //saveDAO s1 = new saveDAO();
-    yoneticiInfo ynt = new yoneticiInfo();
-
-    public YöneticiDAO() throws IOException {
-
-        //s1.save(ynt.toString(), "yönetici.txt");
-
-    }
-
-    public void ekle(yoneticiInfo entity) {
-        
-    }
-
-   
-    public void sil(yoneticiInfo entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public boolean dogrulama(String ad, String soyad, String sifre, String tlfon) throws IOException {
-        boolean a, b, c, d;
-        int syc1 = 0, syc2 = 0, syc3 = 0, syc4 = 0;
-        
-        
-        if(ad!=null&&soyad!=null&&sifre!=null&&tlfon!=null){
-            String str1;
-            while ((str1 = br.readLine()) != null) {
-                a = str1.contains(ad);
-                
-                if (a == true) {
-                    syc1++;
-                }
-                b = str1.contains(soyad);
-                
-                if (b == true) {
-                    syc2++;
-                }
-                c = str1.contains(sifre);
-                
-                if (c == true) {
-                    syc3++;
-                }
-                d = str1.contains(tlfon);
-                
-                if (d == true) {
-                    syc4++;
-                }
-                
-            }
-
-        }
-        else{
-            
-            return false;
-        }
-        
-        
-
-        if (syc1 == 1 && syc2 == 1 && syc3 == 1 && syc4 == 1) {
-            return true;
-        }
-        return false;
+////    private File f;
+////    private FileReader fr;
+////    private BufferedReader br;
+////    private BufferedWriter bw;
+////    private FileWriter fw; 
+//    String dosya = "yönetici.txt";
+//    File f = new File(dosya);
+//    FileReader fr = new FileReader(f);
+//    BufferedReader br = new BufferedReader(fr);
+//    FileWriter fw = new FileWriter(f);
+//
+//    //saveDAO s1 = new saveDAO();
+//    yoneticiInfo ynt = new yoneticiInfo();
+//
+//    public YöneticiDAO() throws IOException {
+//
+//        //s1.save(ynt.toString(), "yönetici.txt");
+//
+//    }
+//
+//    public void ekle(yoneticiInfo entity) {
+//        
+//    }
+//
+//   
+//    public void sil(yoneticiInfo entity) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//    public boolean dogrulama(String ad, String soyad, String sifre, String tlfon) throws IOException {
+//        boolean a, b, c, d;
+//        int syc1 = 0, syc2 = 0, syc3 = 0, syc4 = 0;
+//        
+//        
+//        if(ad!=null&&soyad!=null&&sifre!=null&&tlfon!=null){
+//            String str1;
+//            while ((str1 = br.readLine()) != null) {
+//                a = str1.contains(ad);
+//                
+//                if (a == true) {
+//                    syc1++;
+//                }
+//                b = str1.contains(soyad);
+//                
+//                if (b == true) {
+//                    syc2++;
+//                }
+//                c = str1.contains(sifre);
+//                
+//                if (c == true) {
+//                    syc3++;
+//                }
+//                d = str1.contains(tlfon);
+//                
+//                if (d == true) {
+//                    syc4++;
+//                }
+//                
+//            }
+//
+//        }
+//        else{
+//            
+//            return false;
+//        }
+//        
+//        
+//
+//        if (syc1 == 1 && syc2 == 1 && syc3 == 1 && syc4 == 1) {
+//            return true;
+//        }
+//        return false;
     }
 
 //    public void kaydet() throws IOException {
@@ -153,4 +153,4 @@ public class YöneticiDAO {
 //    }
 
   
-}
+

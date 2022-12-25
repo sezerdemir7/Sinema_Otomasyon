@@ -1,5 +1,6 @@
 package GUI_Action;
 
+import Controller.YöneticiWindowController;
 import GUI.YoneticiWindow;
 import GUI.mainWindow;
 import GUI.costumPanel;
@@ -19,11 +20,11 @@ public class YoneticiWindowAction implements ActionListener {
     private YoneticiWindow yw;
     private costumPanel panel;
     private YöneticiDAO yd;
-
+    private YöneticiWindowController ywc;
     mainWindow mw;
 
     public YoneticiWindowAction(YoneticiWindow yntcw) throws IOException {
-        // yw=new YoneticiWindow();
+        ywc = new YöneticiWindowController();
         yd = new YöneticiDAO();
         mw = new mainWindow();
         this.yw = yntcw;
@@ -33,19 +34,24 @@ public class YoneticiWindowAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource() == yw.getGiris()) {
-                boolean bl = true;
+//                boolean bl = true;
                 //bl = yd.dogrulama(yw.getTad().getText(), yw.getTsoyad().getText(), yw.getSifre().getText(), yw.getTlfon().getText());
 
-                if (bl == true) {
+                String dosya = "yönetici.txt";
 
-                    panel = new YöneticiProcessWindow();
-                    yw.getPanel().setVisible(false);
-                    yw.getPanel().removeAll();
-                    yw.getPanel().add(panel.getPanel());
-                    yw.getPanel().setVisible(true);
-                    yw.getPanel().repaint();
-//                  mw.getWindow().setContentPane(panel.getPanel());
-//                  mw.getWindow().repaint();
+                if (ywc.control(yw)) {
+                    String str = yw.getTad().getText() + " " + yw.getTsoyad().getText() + " " + yw.getTlfon().getText() + " " + yw.getSifre().getText();
+                    if (yd.sifreKontrol(dosya, str)) {
+                        panel = new YöneticiProcessWindow();
+                        yw.getPanel().setVisible(false);
+                        yw.getPanel().removeAll();
+                        yw.getPanel().add(panel.getPanel());
+                        yw.getPanel().setVisible(true);
+                        yw.getPanel().repaint();
+                    }
+                    else{
+                         JOptionPane.showMessageDialog(yw.getPanel(), "Kullanıcı bilgileri Hatalı");
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(yw.getPanel(), "Kullanıcı bilgileri Hatalı");
