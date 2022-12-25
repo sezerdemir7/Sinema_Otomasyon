@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import GUI_Action.BiletciEkleAction;
 import GUI_Action.BiletciWindowAction;
 import GUI_Action.YoneticiWindowAction;
 import java.awt.Color;
@@ -18,7 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class BiletciWindow implements costumPanel{
+public class BiletciEkleWindow implements costumPanel{
     private JPanel panel;
     private JButton giris,geri;
     private JLabel ad,soyad,tlf,lsifre,baslık;
@@ -42,20 +43,36 @@ public class BiletciWindow implements costumPanel{
            this.panel.add(this.getLsifre());
            this.panel.add(this.getSifre());
             try {
+                this.panel.add(this.getGeri());
+            } catch (IOException ex) {
+                Logger.getLogger(BiletciEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
                 this.panel.add(this.getGiris());
             } catch (IOException ex) {
                 Logger.getLogger(YoneticiWindow.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                this.panel.add(getGeri());
-            } catch (IOException ex) {
-                Logger.getLogger(BiletciWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
            this.panel.setBackground(Color.gray);
            this.panel.setLayout(null);
            
         }
         return panel;
+    }
+
+    public JButton getGiris() throws IOException {
+        if(this.giris==null){
+            giris=new JButton("Kaydet");
+            this.giris.setBounds(250, 450, 150, 40);
+            this.giris.setBackground(Color.ORANGE);
+            this.giris.setFont(this.getFn());
+            this.giris.addActionListener(new BiletciEkleAction(this));
+           
+        }
+        return giris;
+    }
+
+    public void setGiris(JButton giris) {
+        this.giris = giris;
     }
     
      public JButton getGeri() throws IOException {
@@ -64,7 +81,7 @@ public class BiletciWindow implements costumPanel{
             this.geri.setBounds(700, 0, 85, 35);
             this.geri.setFont(this.getFn());
             this.geri.setBackground(Color.orange);
-            this.geri.addActionListener(new BiletciWindowAction(this));
+            this.geri.addActionListener(new BiletciEkleAction(this));
             
             
         }
@@ -74,22 +91,7 @@ public class BiletciWindow implements costumPanel{
     public void setGeri(JButton geri) {
         this.geri = geri;
     }
-
-    public JButton getGiris() throws IOException {
-        if(this.giris==null){
-            giris=new JButton("Giriş Yap");
-            this.giris.setBounds(250, 450, 150, 40);
-            this.giris.setBackground(Color.ORANGE);
-            this.giris.setFont(this.getFn());
-            this.giris.addActionListener(new BiletciWindowAction(this));
-           
-        }
-        return giris;
-    }
-
-    public void setGiris(JButton giris) {
-        this.giris = giris;
-    }
+    
 
     public JLabel getAd() {
         if(this.ad==null){
@@ -104,7 +106,7 @@ public class BiletciWindow implements costumPanel{
 
     public JLabel getBaslık() {
         if(this.baslık==null){
-            baslık=new JLabel("Bilet Satış Danışmanı Girişi");
+            baslık=new JLabel("Bilet Satış Danışmanı Ekle");
             Font f2=new Font("",Font.ITALIC,40);
             
             this.baslık.setBounds(150, 50, 500, 50);

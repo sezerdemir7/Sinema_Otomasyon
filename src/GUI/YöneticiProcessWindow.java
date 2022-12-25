@@ -1,51 +1,80 @@
-
 package GUI;
 
 import GUI_Action.YoneticiWindowAction;
 import GUI_Action.YöneticiProcessAction;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+public class YöneticiProcessWindow implements costumPanel {
 
-public class YöneticiProcessWindow implements costumPanel{
-    
     private JPanel panel;
     private JLabel baslık;
-    private JButton filmEkle,remove,salonEkle,salonSil,seansEkle,seansSil;
-    private Font fn;
-    
+    private JButton filmEkle, remove, salonEkle, seansEkle, biletciEkle, geri;
+    private Font fn, fn2;
+
     @Override
     public JPanel getPanel() {
-        if(this.panel==null){
-            this.panel=new JPanel();
-            
+        if (this.panel == null) {
+            this.panel = new JPanel();
+
             this.panel.setSize(800, 600);
             this.panel.add(this.getBaslık());
             this.panel.add(this.getFilmEkle());
             this.panel.add(this.getFilmSil());
             this.panel.add(this.getSeansEkle());
-            //this.panel.add(this.getSeansSil());
+           this.panel.add(this.getGeri());
             this.panel.add(this.getSalonEkle());
-           // this.panel.add(this.getSalonSil());
+            this.panel.add(this.getBiletciEkle());
             this.panel.setBackground(Color.GRAY);
             this.panel.setLayout(null);
         }
-        
-        
-        
+
         return panel;
-        
-        
 
     }
 
+    public JButton getBiletciEkle() {
+        if (this.biletciEkle == null) {
+            this.biletciEkle = new JButton("Biletci Ekle");
+            this.biletciEkle.setBounds(50, 400, 200, 50);
+            this.biletciEkle.setForeground(Color.darkGray);
+            this.biletciEkle.setBackground(Color.yellow);
+            this.biletciEkle.setFont(this.getFn());
+            this.biletciEkle.addActionListener(new YöneticiProcessAction(this));
+        }
+        return biletciEkle;
+    }
+
+    public void setBiletciEkle(JButton biletciEkle) {
+        this.biletciEkle = biletciEkle;
+    }
+
+    public JButton getGeri()  {
+        if (this.geri == null) {
+            this.geri = new JButton("Geri");
+            this.geri.setBounds(700, 0, 100, 35);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new YöneticiProcessAction(this));
+
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
     public JButton getFilmEkle() {
-        if(this.filmEkle==null){
-           filmEkle=new JButton("Film Ekle");
-            this.filmEkle.setBounds(50, 150, 200, 50);
+        if (this.filmEkle == null) {
+            filmEkle = new JButton("Film Ekle");
+            this.filmEkle.setBounds(50, 100, 200, 50);
             this.filmEkle.setForeground(Color.darkGray);
             this.filmEkle.setBackground(Color.yellow);
             this.filmEkle.setFont(this.getFn());
@@ -59,8 +88,8 @@ public class YöneticiProcessWindow implements costumPanel{
     }
 
     public JButton getFilmSil() {
-        if(this.remove==null){
-            remove=new JButton("Silme İşlemeleri");
+        if (this.remove == null) {
+            remove = new JButton("Silme İşlemeleri");
             this.remove.setBounds(350, 230, 350, 80);
             this.remove.setBackground(Color.yellow);
             this.remove.setForeground(Color.darkGray);
@@ -75,9 +104,9 @@ public class YöneticiProcessWindow implements costumPanel{
     }
 
     public JButton getSalonEkle() {
-        if(this.salonEkle==null){
-            salonEkle=new JButton("Salon Ekle");
-            this.salonEkle.setBounds(50, 350, 200, 50);
+        if (this.salonEkle == null) {
+            salonEkle = new JButton("Salon Ekle");
+            this.salonEkle.setBounds(50, 300, 200, 50);
             this.salonEkle.setBackground(Color.yellow);
             this.salonEkle.setForeground(Color.darkGray);
             this.salonEkle.setFont(this.getFn());
@@ -90,25 +119,10 @@ public class YöneticiProcessWindow implements costumPanel{
         this.salonEkle = salonEkle;
     }
 
-//    public JButton getSalonSil() {
-//        if(this.salonSil==null){
-//            salonSil=new JButton("Salon Sil");
-//            this.salonSil.setBounds(450, 350, 200, 50);
-//            this.salonSil.setBackground(Color.GREEN);
-//            this.salonSil.setForeground(Color.white);
-//            this.salonSil.setFont(this.getFn());
-//        }
-//        return salonSil;
-//    }
-//
-//    public void setSalonSil(JButton salonSil) {
-//        this.salonSil = salonSil;
-//    }
-
     public JButton getSeansEkle() {
-        if(this.seansEkle==null){
-            seansEkle=new JButton("Seans Ekle");
-            this.seansEkle.setBounds(50, 250, 200, 50);
+        if (this.seansEkle == null) {
+            seansEkle = new JButton("Seans Ekle");
+            this.seansEkle.setBounds(50, 200, 200, 50);
             this.seansEkle.setBackground(Color.yellow);
             this.seansEkle.setForeground(Color.darkGray);
             this.seansEkle.setFont(this.getFn());
@@ -136,14 +150,13 @@ public class YöneticiProcessWindow implements costumPanel{
 //        
 //        this.seansSil = seansSil;
 //    }
-
     public JLabel getBaslık() {
-        if(this.baslık==null){
-            baslık=new JLabel("Yönetici İşlemleri");
-            this.baslık.setBounds(240, 50, 300, 50);
+        if (this.baslık == null) {
+            baslık = new JLabel("Yönetici İşlemleri");
+            this.baslık.setBounds(240, 10, 300, 50);
             this.baslık.setForeground(Color.WHITE);
-            this.baslık.setFont(this.getFn());
-            
+            this.baslık.setFont(this.getFn2());
+
         }
         return baslık;
     }
@@ -151,12 +164,11 @@ public class YöneticiProcessWindow implements costumPanel{
     public void setBaslık(JLabel baslık) {
         this.baslık = baslık;
     }
-    
 
     public Font getFn() {
-        if(this.fn==null){
-            fn=new Font("",Font.CENTER_BASELINE,30); 
-            
+        if (this.fn == null) {
+            fn = new Font("", Font.CENTER_BASELINE, 30);
+
         }
         return fn;
     }
@@ -164,5 +176,17 @@ public class YöneticiProcessWindow implements costumPanel{
     public void setFn(Font fn) {
         this.fn = fn;
     }
-    
+
+    public Font getFn2() {
+        if (this.fn2 == null) {
+            this.fn2 = new Font("", Font.ITALIC, 35);
+
+        }
+        return fn2;
+    }
+
+    public void setFn2(Font fn2) {
+        this.fn2 = fn2;
+    }
+
 }

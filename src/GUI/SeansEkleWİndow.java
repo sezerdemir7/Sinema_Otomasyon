@@ -42,7 +42,7 @@ private JButton anasayfa,geri,exit;
             this.panel.add(this.getCbsaat());
             this.panel.add(this.getSaat());
             this.panel.add(this.getKaydet());
-            this.panel.add(this.getAnasayfa());
+           // this.panel.add(this.getAnasayfa());
             this.panel.add(this.getGeri());
             try {
                 this.panel.add(this.getList());
@@ -89,26 +89,26 @@ private JButton anasayfa,geri,exit;
         }
         return Lucret;
     }
-    public JButton getAnasayfa() {
-        if(this.anasayfa==null){
-            this.anasayfa=new JButton("AnaSayfa");
-            this.anasayfa.setBounds(-15, 0, 140, 25);
-            this.anasayfa.setFont(this.getFn());
-            this.anasayfa.setBackground(Color.orange);
-            
-            
-        }
-        return anasayfa;
-    }
-
-    public void setAnasayfa(JButton anasayfa) {
-        this.anasayfa = anasayfa;
-    }
+//    public JButton getAnasayfa() {
+//        if(this.anasayfa==null){
+//            this.anasayfa=new JButton("AnaSayfa");
+//            this.anasayfa.setBounds(-15, 0, 140, 25);
+//            this.anasayfa.setFont(this.getFn());
+//            this.anasayfa.setBackground(Color.orange);
+//            
+//            
+//        }
+//        return anasayfa;
+//    }
+//
+//    public void setAnasayfa(JButton anasayfa) {
+//        this.anasayfa = anasayfa;
+//    }
 
     public JButton getGeri() {
         if(this.geri==null){
             this.geri=new JButton("Geri");
-            this.geri.setBounds(145, 0, 85, 25);
+            this.geri.setBounds(700, 0, 85, 35);
             this.geri.setFont(this.getFn());
             this.geri.setBackground(Color.orange);
             this.geri.addActionListener(new SeansEkleWindowAction(this));

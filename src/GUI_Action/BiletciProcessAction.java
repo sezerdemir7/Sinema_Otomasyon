@@ -2,6 +2,7 @@ package GUI_Action;
 
 import Controller.BiletciProcessController;
 import GUI.BiletciProcesWindow;
+import GUI.BiletciWindow;
 import GUI.MüsteriProcessWindow;
 import GUI.costumPanel;
 import java.awt.Color;
@@ -91,7 +92,17 @@ public class BiletciProcessAction implements ActionListener {
             bpw.getPanel().setVisible(true);
             bpw.getPanel().repaint();
         }
+        
+        if(e.getSource()==bpw.getGeri()){
+            panel=new BiletciWindow();
+            bpw.getPanel().setVisible(false);
+            bpw.getPanel().removeAll();
+            bpw.getPanel().add(panel.getPanel());
+            bpw.getPanel().setVisible(true);
+            bpw.getPanel().repaint();
+        }
 
     }
+    
 
 }

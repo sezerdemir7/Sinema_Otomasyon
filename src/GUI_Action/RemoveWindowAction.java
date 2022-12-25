@@ -10,6 +10,7 @@ import DAO.SeansDAO;
 import Entity.filmInfo;
 import Entity.salonInfo;
 import Entity.seans;
+import GUI.YöneticiProcessWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -72,7 +73,7 @@ public class RemoveWindowAction implements ActionListener {
         if (e.getSource() == rw.getSalon()) {
             try {
                 if (rwc.control(rw) == true) {
-                    
+
                     panel = new RemoveWİndow();
                     String dosya2 = String.valueOf(s1.getClass()) + ".txt";
                     try {
@@ -85,15 +86,14 @@ public class RemoveWindowAction implements ActionListener {
                     rw.getPanel().add(panel.getPanel());
                     rw.getPanel().setVisible(true);
                     rw.getPanel().repaint();
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rw.getPanel(), "Lütfen Silinecek Salonu Seçin");
                 }
             } catch (IOException ex) {
                 Logger.getLogger(RemoveWindowAction.class.getName()).log(Level.SEVERE, null, ex);
             }
-            }
-            if (e.getSource() == rw.getSeans()) {
+        }
+        if (e.getSource() == rw.getSeans()) {
             try {
                 if (rwc.control(rw) == true) {
                     panel = new RemoveWİndow();
@@ -108,15 +108,22 @@ public class RemoveWindowAction implements ActionListener {
                     rw.getPanel().add(panel.getPanel());
                     rw.getPanel().setVisible(true);
                     rw.getPanel().repaint();
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rw.getPanel(), "Lütfen Silinecek Seansı Seçin");
                 }
             } catch (IOException ex) {
                 Logger.getLogger(RemoveWindowAction.class.getName()).log(Level.SEVERE, null, ex);
             }
-            }
-        
+        }
+
+        if (e.getSource() == rw.getGeri()) {
+            panel = new YöneticiProcessWindow();
+            rw.getPanel().removeAll();
+            rw.getPanel().setVisible(false);
+            rw.getPanel().add(panel.getPanel());
+            rw.getPanel().setVisible(true);
+            rw.getPanel().repaint();
+        }
     }
 
 }

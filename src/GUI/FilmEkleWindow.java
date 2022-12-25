@@ -44,7 +44,7 @@ public class FilmEkleWindow implements costumPanel{
             this.panel.add(this.getSüre());
             this.panel.add(this.getBaslık());
             this.panel.add(this.getEkle());
-            this.panel.add(this.getAnasayfa());
+            //this.panel.add(this.getAnasayfa());
             this.panel.add(this.getGeri());
             try {
                 this.panel.add(this.getSp());
@@ -111,26 +111,26 @@ public class FilmEkleWindow implements costumPanel{
         this.list = list;
     }
 
-    public JButton getAnasayfa() {
-        if(this.anasayfa==null){
-            this.anasayfa=new JButton("AnaSayfa");
-            this.anasayfa.setBounds(-15, 0, 135, 25);
-            this.anasayfa.setFont(this.getFn());
-            this.anasayfa.setBackground(Color.orange);
-            
-            
-        }
-        return anasayfa;
-    }
-
-    public void setAnasayfa(JButton anasayfa) {
-        this.anasayfa = anasayfa;
-    }
+//    public JButton getAnasayfa() {
+//        if(this.anasayfa==null){
+//            this.anasayfa=new JButton("AnaSayfa");
+//            this.anasayfa.setBounds(-15, 0, 135, 25);
+//            this.anasayfa.setFont(this.getFn());
+//            this.anasayfa.setBackground(Color.orange);
+//            
+//            
+//        }
+//        return anasayfa;
+//    }
+//
+//    public void setAnasayfa(JButton anasayfa) {
+//        this.anasayfa = anasayfa;
+//    }
 
     public JButton getGeri() {
         if(this.geri==null){
             this.geri=new JButton("Geri");
-            this.geri.setBounds(140, 0, 75, 25);
+            this.geri.setBounds(700, 0, 75, 35);
             this.geri.setFont(this.getFn());
             this.geri.setBackground(Color.orange);
             this.geri.addActionListener(new FilmEkleWindowAction(this));

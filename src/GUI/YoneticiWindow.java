@@ -12,7 +12,7 @@ import javax.swing.*;
 public class YoneticiWindow implements costumPanel{
     
     private JPanel panel;
-    private JButton giris;
+    private JButton giris,geri;
     private JLabel ad,soyad,tlf,lsifre,baslık;
     private JTextField tad,tsoyad,tlfon;
     private JPasswordField sifre;
@@ -41,6 +41,11 @@ public class YoneticiWindow implements costumPanel{
             } catch (IOException ex) {
                 Logger.getLogger(YoneticiWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
+            try {
+                this.panel.add(this.getGeri());
+            } catch (IOException ex) {
+                Logger.getLogger(YoneticiWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
            this.panel.setBackground(Color.gray);
            this.panel.setLayout(null);
            
@@ -62,6 +67,21 @@ public class YoneticiWindow implements costumPanel{
 
     public void setGiris(JButton giris) {
         this.giris = giris;
+    }
+    public JButton getGeri() throws IOException  {
+        if (this.geri == null) {
+            this.geri = new JButton("Geri");
+            this.geri.setBounds(700, 0, 100, 35);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new YoneticiWindowAction(this));
+
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JLabel getAd() {

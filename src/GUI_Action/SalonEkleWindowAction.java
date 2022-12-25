@@ -62,18 +62,18 @@ public class SalonEkleWindowAction implements ActionListener {
         } catch (IOException ex) {
             Logger.getLogger(SalonEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            if (e.getSource() == sew.getAnasayfa()) {
-                panel = new mainWindow();
-                sew.getPanel().setVisible(false);
-                sew.getPanel().removeAll();
-                sew.getPanel().add(panel.getPanel());
-                sew.getPanel().setVisible(true);
-                sew.getPanel().repaint();
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(SalonEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            if (e.getSource() == sew.getAnasayfa()) {
+//                panel = new mainWindow();
+//                sew.getPanel().setVisible(false);
+//                sew.getPanel().removeAll();
+//                sew.getPanel().add(panel.getPanel());
+//                sew.getPanel().setVisible(true);
+//                sew.getPanel().repaint();
+//            }
+//        } catch (IOException ex) {
+//            Logger.getLogger(SalonEkleWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
 }

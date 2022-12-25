@@ -56,6 +56,19 @@ public class YoneticiWindowAction implements ActionListener {
             Logger.getLogger(YoneticiWindowAction.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        try {
+            if (e.getSource() == yw.getGeri()) {
+                panel = new mainWindow();
+                yw.getPanel().setVisible(false);
+                yw.getPanel().removeAll();
+                yw.getPanel().add(panel.getPanel());
+                yw.getPanel().setVisible(true);
+                yw.getPanel().repaint();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(YoneticiWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

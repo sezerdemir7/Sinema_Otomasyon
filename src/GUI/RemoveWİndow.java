@@ -27,7 +27,7 @@ public class RemoveWİndow implements costumPanel{
     private SeansDAO seansdao;
     private JScrollPane sp,sp1,sp2;
     private Font fn,fn2;
-    private JButton film,salon,seans;
+    private JButton film,salon,seans,geri;
     
     
     @Override
@@ -42,6 +42,7 @@ public class RemoveWİndow implements costumPanel{
             this.panel.add(this.getFilm());
             this.panel.add(this.getSalon());
             this.panel.add(this.getSeans());
+            this.panel.add(this.getGeri());
             
             try {
                 this.panel.add(this.getSp());
@@ -78,6 +79,23 @@ public class RemoveWİndow implements costumPanel{
 
     public void setPanel(JPanel panel) {
         this.panel = panel;
+    }
+    
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(700, 0, 85, 35);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new RemoveWindowAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JButton getFilm() {

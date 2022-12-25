@@ -60,6 +60,19 @@ public class BiletciWindowAction implements ActionListener {
         } catch (IOException ex) {
             Logger.getLogger(BiletciWindowAction.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            if(e.getSource()==bw.getGeri()){
+                panel = new mainWindow();
+                bw.getPanel().setVisible(false);
+                bw.getPanel().removeAll();
+                bw.getPanel().add(panel.getPanel());
+                bw.getPanel().setVisible(true);
+                bw.getPanel().repaint();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(BiletciWindowAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

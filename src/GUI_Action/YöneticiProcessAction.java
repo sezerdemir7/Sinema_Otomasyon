@@ -4,6 +4,7 @@
  */
 package GUI_Action;
 
+import GUI.BiletciEkleWindow;
 import GUI.YöneticiProcessWindow;
 import GUI.costumPanel;
 import GUI.mainWindow;
@@ -11,6 +12,7 @@ import GUI.FilmEkleWindow;
 import GUI.RemoveWİndow;
 import GUI.SalonEkleWindow;
 import GUI.SeansEkleWİndow;
+import GUI.YoneticiWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -51,33 +53,46 @@ public class YöneticiProcessAction implements ActionListener {
             ypw.getPanel().add(panel.getPanel());
             ypw.getPanel().setVisible(true);
             ypw.getPanel().repaint();
-            
+
+//            mw.getWindow().setContentPane(panel.getPanel());
+//            mw.getWindow().repaint();
+        }
+        if (e.getSource() == ypw.getSalonEkle()) {
+            panel = new SalonEkleWindow();
+            // ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            // ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
 //            mw.getWindow().setContentPane(panel.getPanel());
 //            mw.getWindow().repaint();
 
         }
-        if(e.getSource()==ypw.getSalonEkle()){
-            panel=new SalonEkleWindow();
-           // ypw.getPanel().setVisible(false);
-            ypw.getPanel().removeAll();
-            ypw.getPanel().add(panel.getPanel());
-           // ypw.getPanel().setVisible(true);
-            ypw.getPanel().repaint();
-//            mw.getWindow().setContentPane(panel.getPanel());
-//            mw.getWindow().repaint();
-            
-            
-        }
-        if(e.getSource()==ypw.getFilmSil()){
-            panel=new RemoveWİndow();
+        if (e.getSource() == ypw.getFilmSil()) {
+            panel = new RemoveWİndow();
             ypw.getPanel().setVisible(false);
             ypw.getPanel().removeAll();
             ypw.getPanel().add(panel.getPanel());
             ypw.getPanel().setVisible(true);
             ypw.getPanel().repaint();
-//            mw.getWindow().setContentPane(panel.getPanel());
-//            mw.getWindow().repaint();
-            
+
+
+        }
+        if (e.getSource() == ypw.getBiletciEkle()) {
+            panel = new BiletciEkleWindow();
+            ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
+        }
+        if (e.getSource() == ypw.getGeri()) {
+            panel = new YoneticiWindow();
+            ypw.getPanel().setVisible(false);
+            ypw.getPanel().removeAll();
+            ypw.getPanel().add(panel.getPanel());
+            ypw.getPanel().setVisible(true);
+            ypw.getPanel().repaint();
         }
 
     }
