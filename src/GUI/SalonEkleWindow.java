@@ -1,5 +1,6 @@
 package GUI;
 
+import DAO.SalonDAO;
 import GUI_Action.SalonEkleWindowAction;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +19,10 @@ public class SalonEkleWindow implements costumPanel {
     private JComboBox kat;
     private Font fn, fn2;
     private JButton kaydet, anasayfa, geri;
-
+    private DefaultListModel modelSalon;
+    private JList listSalon;
+    private SalonDAO slndao;
+    private JScrollPane sp1;
     @Override
     public JPanel getPanel() {
         if (this.panel == null) {
@@ -29,6 +33,11 @@ public class SalonEkleWindow implements costumPanel {
             this.panel.add(this.getLkat());
             this.panel.add(this.getNo());
             this.panel.add(this.getKat());
+            try {
+                this.panel.add(this.getSp1());
+            } catch (IOException ex) {
+                Logger.getLogger(SalonEkleWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             try {
                 this.panel.add(this.getGeri());
@@ -52,21 +61,56 @@ public class SalonEkleWindow implements costumPanel {
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-//    public JButton getAnasayfa() throws IOException {
-//        if(this.anasayfa==null){
-//            this.anasayfa=new JButton("AnaSayfa");
-//            this.anasayfa.setBounds(-15, 0, 140, 25);
-//            this.anasayfa.setFont(this.getFn());
-//            this.anasayfa.setBackground(Color.orange);
-//            this.anasayfa.addActionListener(new SalonEkleWindowAction(this));
-//            
-//        }
-//        return anasayfa;
-//    }
-//
-//    public void setAnasayfa(JButton anasayfa) {
-//        this.anasayfa = anasayfa;
-//    }
+    
+    public DefaultListModel getModelSalon() throws IOException {
+        if(this.modelSalon==null){
+             slndao=new SalonDAO();
+             String[] dizi1=slndao.listele("class Entity.salonInfo.txt");
+            
+             
+            this.modelSalon=new DefaultListModel();
+            int i;
+            for( i=0;i<dizi1.length;i++){
+               
+               this.modelSalon.addElement(dizi1[i]); 
+               
+            }
+                
+            
+            
+        }
+        
+        return modelSalon;
+    }
+
+    public void setModelSalon(DefaultListModel modelSalon) {
+        this.modelSalon = modelSalon;
+    }
+     public JList getListSalon() throws IOException {
+        if(this.listSalon==null){
+            this.listSalon = new JList(this.getModelSalon());
+            
+          
+        }
+        return listSalon;
+    }
+
+    public void setListSalon(JList listSalon) {
+        this.listSalon = listSalon;
+    }
+    public JScrollPane getSp1() throws IOException {
+        if(this.sp1==null){
+            this.sp1=new JScrollPane(this.getListSalon());
+            this.sp1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+             this.sp1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            this.sp1.setBounds(400, 120, 300, 200);
+        }
+        return sp1;
+    }
+
+    public void setSp1(JScrollPane sp1) {
+        this.sp1 = sp1;
+    }
 
     public JButton getGeri() throws IOException {
         if (this.geri == null) {
@@ -157,7 +201,7 @@ public class SalonEkleWindow implements costumPanel {
     public JButton getKaydet() throws IOException {
         if (this.kaydet == null) {
             this.kaydet = new JButton("Kaydet");
-            this.kaydet.setBounds(260, 280, 130, 40);
+            this.kaydet.setBounds(150, 280, 130, 40);
             this.kaydet.setFont(this.getFn());
             this.kaydet.setBackground(Color.ORANGE);
             this.kaydet.addActionListener(new SalonEkleWindowAction(this));

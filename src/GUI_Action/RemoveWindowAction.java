@@ -47,7 +47,7 @@ public class RemoveWindowAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == rw.getFilm()) {
             try {
-                if (rwc.control(rw) == true) {
+                if (rwc.controlfilm(rw) == true) {
 
                     panel = new RemoveWİndow();
                     String dosya = String.valueOf(fl.getClass()) + ".txt";
@@ -72,7 +72,7 @@ public class RemoveWindowAction implements ActionListener {
         }
         if (e.getSource() == rw.getSalon()) {
             try {
-                if (rwc.control(rw) == true) {
+                if (rwc.controlsalon(rw) == true) {
 
                     panel = new RemoveWİndow();
                     String dosya2 = String.valueOf(s1.getClass()) + ".txt";
@@ -95,7 +95,7 @@ public class RemoveWindowAction implements ActionListener {
         }
         if (e.getSource() == rw.getSeans()) {
             try {
-                if (rwc.control(rw) == true) {
+                if (rwc.controlseans(rw) == true) {
                     panel = new RemoveWİndow();
                     String dosya3 = String.valueOf(seans.getClass()) + ".txt";
                     try {
