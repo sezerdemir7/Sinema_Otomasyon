@@ -1,3 +1,6 @@
+Salon NO:1 Koltuk Sayisi 20 1.Kat&
+Salon NO:2 Koltuk Sayisi 20 1.Kat&
 Salon NO:3 Koltuk Sayisi 20 1.Kat&
-Salon NO:4 Koltuk Sayisi 20 1.Kat&
-Salon NO:3 Koltuk Sayisi 20 3.Kat&
+Salon NO:1 Koltuk Sayisi 20 2.Kat&
+Salon NO:2 Koltuk Sayisi 20 2.Kat&
+Salon NO:3 Koltuk Sayisi 20 2.Kat&

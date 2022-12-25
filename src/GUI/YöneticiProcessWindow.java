@@ -44,7 +44,7 @@ public class YöneticiProcessWindow implements costumPanel {
             this.biletciEkle = new JButton("Biletci Ekle");
             this.biletciEkle.setBounds(50, 400, 200, 50);
             this.biletciEkle.setForeground(Color.darkGray);
-            this.biletciEkle.setBackground(Color.yellow);
+            this.biletciEkle.setBackground(Color.orange);
             this.biletciEkle.setFont(this.getFn());
             this.biletciEkle.addActionListener(new YöneticiProcessAction(this));
         }
@@ -76,7 +76,7 @@ public class YöneticiProcessWindow implements costumPanel {
             filmEkle = new JButton("Film Ekle");
             this.filmEkle.setBounds(50, 100, 200, 50);
             this.filmEkle.setForeground(Color.darkGray);
-            this.filmEkle.setBackground(Color.yellow);
+            this.filmEkle.setBackground(Color.orange);
             this.filmEkle.setFont(this.getFn());
             this.filmEkle.addActionListener(new YöneticiProcessAction(this));
         }
@@ -91,7 +91,7 @@ public class YöneticiProcessWindow implements costumPanel {
         if (this.remove == null) {
             remove = new JButton("Silme İşlemeleri");
             this.remove.setBounds(350, 230, 350, 80);
-            this.remove.setBackground(Color.yellow);
+            this.remove.setBackground(Color.orange);
             this.remove.setForeground(Color.darkGray);
             this.remove.setFont(this.getFn());
             this.remove.addActionListener(new YöneticiProcessAction(this));
@@ -107,7 +107,7 @@ public class YöneticiProcessWindow implements costumPanel {
         if (this.salonEkle == null) {
             salonEkle = new JButton("Salon Ekle");
             this.salonEkle.setBounds(50, 300, 200, 50);
-            this.salonEkle.setBackground(Color.yellow);
+            this.salonEkle.setBackground(Color.orange);
             this.salonEkle.setForeground(Color.darkGray);
             this.salonEkle.setFont(this.getFn());
             this.salonEkle.addActionListener(new YöneticiProcessAction(this));
@@ -123,7 +123,7 @@ public class YöneticiProcessWindow implements costumPanel {
         if (this.seansEkle == null) {
             seansEkle = new JButton("Seans Ekle");
             this.seansEkle.setBounds(50, 200, 200, 50);
-            this.seansEkle.setBackground(Color.yellow);
+            this.seansEkle.setBackground(Color.orange);
             this.seansEkle.setForeground(Color.darkGray);
             this.seansEkle.setFont(this.getFn());
             this.seansEkle.addActionListener(new YöneticiProcessAction(this));

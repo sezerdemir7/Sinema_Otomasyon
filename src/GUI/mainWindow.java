@@ -60,9 +60,9 @@ public class mainWindow implements costumPanel {
     public JTabbedPane getTp() {
         if (this.tp == null) {
             mw = new mainWindow();
-            yw = new YoneticiWindow();
-            bw = new BiletciWindow();
-            müw = new MüsteriWindow();
+//            yw = new YoneticiWindow();
+//            bw = new BiletciWindow();
+//            müw = new MüsteriWindow();
             ana = new anasayfa();
             this.tp = new JTabbedPane();
             this.tp.setBounds(0, 0, 800, 600);
