@@ -23,6 +23,7 @@ public class mainWindow implements costumPanel {
     private BiletciWindow bw;
     private MüsteriWindow müw;
     private mainWindow mw;
+    private ansayfa ana;
     Image mg = new ImageIcon(mainWindow.class.getResource("/admin2.png")).getImage();
     Image mg2 = new ImageIcon(mainWindow.class.getResource("/biletci.png")).getImage();
     Image mg3 = new ImageIcon(mainWindow.class.getResource("/musteri4.png")).getImage();
@@ -62,19 +63,21 @@ public class mainWindow implements costumPanel {
             yw = new YoneticiWindow();
             bw = new BiletciWindow();
             müw = new MüsteriWindow();
+            ana=new ansayfa();
             this.tp = new JTabbedPane();
             this.tp.setBounds(0, 0, 800, 600);
             this.getPanel().removeAll();
             this.getPanel().setVisible(false);
             this.getPanel().setVisible(true);
             this.getPanel().repaint();
-            this.tp.add("Anasayfa", mw.getPanel());
+            this.tp.add("AnaSayfa",ana.getPanel());
+            this.tp.add("Giriş Seçenekleri", mw.getPanel());
 
             this.tp.add("Yönetici Giriş", yw.getPanel());
             this.tp.setBackground(Color.WHITE);
             this.tp.add("Bilet Satış Danışmanı", bw.getPanel());
             this.tp.add("Müşteri Girişi", müw.getPanel());
-            this.tp.add(this.getExit());
+            
 
         }
         return tp;

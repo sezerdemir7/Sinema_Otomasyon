@@ -9,33 +9,32 @@ import java.util.logging.Logger;
 
 import javax.swing.*;
 
-public class YoneticiWindow implements costumPanel{
-    
+public class YoneticiWindow implements costumPanel {
+
     private JPanel panel;
-    private JButton giris,geri;
-    private JLabel ad,soyad,tlf,lsifre,baslık;
-    private JTextField tad,tsoyad,tlfon;
+    private JButton giris, geri;
+    private JLabel ad, soyad, tlf, lsifre, baslık;
+    private JTextField tad, tsoyad, tlfon;
     private JPasswordField sifre;
     private Font fn;
     private JTabbedPane tp;
-  
-    
+
     @Override
     public JPanel getPanel() {
-        if(this.panel==null){
-           this.panel=new JPanel();
-           this.panel.setSize(800, 600);
-           
-           this.panel.add(getBaslık());
-           this.panel.add(this.getAd());
-           this.panel.add(this.getTad());
-           this.panel.add(this.getSoyad());
-           this.panel.add(this.getTsoyad());
-           this.panel.add(this.getTlf());
-           this.panel.add(this.getTlfon());
-           this.panel.add(this.getLsifre());
-           
-           this.panel.add(this.getSifre());
+        if (this.panel == null) {
+            this.panel = new JPanel();
+            this.panel.setSize(800, 600);
+
+            this.panel.add(getBaslık());
+            this.panel.add(this.getAd());
+            this.panel.add(this.getTad());
+            this.panel.add(this.getSoyad());
+            this.panel.add(this.getTsoyad());
+            this.panel.add(this.getTlf());
+            this.panel.add(this.getTlfon());
+            this.panel.add(this.getLsifre());
+
+            this.panel.add(this.getSifre());
             try {
                 this.panel.add(this.getGiris());
             } catch (IOException ex) {
@@ -46,17 +45,16 @@ public class YoneticiWindow implements costumPanel{
             } catch (IOException ex) {
                 Logger.getLogger(YoneticiWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-           this.panel.setBackground(Color.gray);
-           this.panel.setLayout(null);
-           
+            this.panel.setBackground(Color.gray);
+            this.panel.setLayout(null);
+
         }
         return panel;
     }
-    
 
     public JButton getGiris() throws IOException {
-        if(this.giris==null){
-            giris=new JButton("Giriş Yap");
+        if (this.giris == null) {
+            giris = new JButton("Giriş Yap");
             this.giris.setBounds(250, 450, 150, 40);
             this.giris.setBackground(Color.ORANGE);
             this.giris.setFont(this.getFn());
@@ -68,7 +66,8 @@ public class YoneticiWindow implements costumPanel{
     public void setGiris(JButton giris) {
         this.giris = giris;
     }
-    public JButton getGeri() throws IOException  {
+
+    public JButton getGeri() throws IOException {
         if (this.geri == null) {
             this.geri = new JButton("Geri");
             this.geri.setBounds(700, 0, 100, 35);
@@ -85,21 +84,21 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JLabel getAd() {
-        if(this.ad==null){
-            this.ad=new JLabel("Ad:");
+        if (this.ad == null) {
+            this.ad = new JLabel("Ad:");
             this.ad.setFont(this.getFn());
             this.ad.setForeground(Color.WHITE);
             this.ad.setBounds(50, 150, 100, 40);
-            
+
         }
         return ad;
     }
 
     public JLabel getBaslık() {
-        if(this.baslık==null){
-            baslık=new JLabel("Yönetici Girişi");
-            Font f2=new Font("",Font.ITALIC,40);
-            
+        if (this.baslık == null) {
+            baslık = new JLabel("Yönetici Girişi");
+            Font f2 = new Font("", Font.ITALIC, 40);
+
             this.baslık.setBounds(250, 50, 300, 50);
             this.baslık.setFont(f2);
             this.baslık.setForeground(Color.white);
@@ -116,8 +115,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JLabel getSoyad() {
-        if(this.soyad==null){
-            soyad=new JLabel("Soyad:");
+        if (this.soyad == null) {
+            soyad = new JLabel("Soyad:");
             this.soyad.setFont(this.getFn());
             this.soyad.setBounds(50, 220, 100, 40);
             this.soyad.setForeground(Color.WHITE);
@@ -130,8 +129,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JLabel getTlf() {
-        if(this.tlf==null){
-            tlf=new JLabel("Telefon:");
+        if (this.tlf == null) {
+            tlf = new JLabel("Telefon:");
             this.tlf.setFont(this.getFn());
             this.tlf.setBounds(50, 290, 100, 40);
             this.tlf.setForeground(Color.WHITE);
@@ -144,8 +143,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JLabel getLsifre() {
-        if(this.lsifre==null){
-            lsifre=new JLabel("Sifre:");
+        if (this.lsifre == null) {
+            lsifre = new JLabel("Sifre:");
             this.lsifre.setFont(this.getFn());
             this.lsifre.setBounds(50, 360, 100, 40);
             this.lsifre.setForeground(Color.WHITE);
@@ -158,8 +157,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JTextField getTad() {
-        if(this.tad==null){
-            tad=new JTextField();
+        if (this.tad == null) {
+            tad = new JTextField();
             this.tad.setBounds(130, 155, 150, 35);
         }
         return tad;
@@ -170,8 +169,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JTextField getTsoyad() {
-        if(tsoyad==null){
-            tsoyad=new JTextField();
+        if (tsoyad == null) {
+            tsoyad = new JTextField();
             this.tsoyad.setBounds(130, 222, 150, 35);
         }
         return tsoyad;
@@ -182,8 +181,8 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public JTextField getTlfon() {
-        if(this.tlfon==null){
-            tlfon=new JTextField();
+        if (this.tlfon == null) {
+            tlfon = new JTextField();
             this.tlfon.setBounds(130, 296, 150, 35);
         }
         return tlfon;
@@ -193,12 +192,10 @@ public class YoneticiWindow implements costumPanel{
         this.tlfon = tlfon;
     }
 
-    
-
     public JPasswordField getSifre() {
-        if(this.sifre==null){
-            sifre=new JPasswordField();
-           
+        if (this.sifre == null) {
+            sifre = new JPasswordField();
+
             this.sifre.setBounds(130, 365, 150, 35);
         }
         return sifre;
@@ -209,9 +206,9 @@ public class YoneticiWindow implements costumPanel{
     }
 
     public Font getFn() {
-        if(this.fn==null){
-            fn=new Font("",Font.BOLD,20); 
-            
+        if (this.fn == null) {
+            fn = new Font("", Font.BOLD, 20);
+
         }
         return fn;
     }
@@ -219,6 +216,5 @@ public class YoneticiWindow implements costumPanel{
     public void setFn(Font fn) {
         this.fn = fn;
     }
-    
-    
+
 }

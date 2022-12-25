@@ -34,9 +34,6 @@ public class YoneticiWindowAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource() == yw.getGiris()) {
-//                boolean bl = true;
-                //bl = yd.dogrulama(yw.getTad().getText(), yw.getTsoyad().getText(), yw.getSifre().getText(), yw.getTlfon().getText());
-
                 String dosya = "yönetici.txt";
 
                 if (ywc.control(yw)) {
@@ -48,9 +45,8 @@ public class YoneticiWindowAction implements ActionListener {
                         yw.getPanel().add(panel.getPanel());
                         yw.getPanel().setVisible(true);
                         yw.getPanel().repaint();
-                    }
-                    else{
-                         JOptionPane.showMessageDialog(yw.getPanel(), "Kullanıcı bilgileri Hatalı");
+                    } else {
+                        JOptionPane.showMessageDialog(yw.getPanel(), "Kullanıcı bilgileri Hatalı");
                     }
 
                 } else {
