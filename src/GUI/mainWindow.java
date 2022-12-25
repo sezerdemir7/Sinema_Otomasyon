@@ -71,7 +71,7 @@ public class mainWindow implements costumPanel {
             this.tp.add("Anasayfa", mw.getPanel());
 
             this.tp.add("Yönetici Giriş", yw.getPanel());
-            this.tp.setBackground(Color.YELLOW);
+            this.tp.setBackground(Color.WHITE);
             this.tp.add("Bilet Satış Danışmanı", bw.getPanel());
             this.tp.add("Müşteri Girişi", müw.getPanel());
             this.tp.add(this.getExit());

@@ -10,12 +10,14 @@ public class BiletciWindowController {
     public boolean control(BiletciWindow bw){
         this.bw=bw;
         
-        //burada doğrulama fonksiyonu yapılacak unutma 
+       if(bw.getTad().getText().length()>0&&bw.getTsoyad().getText().length()>0&&bw.getTsoyad().getText().length()>0&&bw.getSifre().getText().length()>0){
+           return true;
+       }
         
         
         
         
-        return true;
+        return false;
         
         
     }
