@@ -1,9 +1,13 @@
 
 package GUI;
 
+import GUI_Action.MüsteriProcessAction;
 import GUI_Action.MüsteriWindowAction;
 import java.awt.Color;
 import java.awt.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,7 +22,7 @@ public class MüsteriWindow implements costumPanel{
     private Font fn,fn2;
     
     
-    private JButton grs;
+    private JButton grs,geri;
 
     @Override
     public JPanel getPanel() {
@@ -34,7 +38,11 @@ public class MüsteriWindow implements costumPanel{
             this.panel.add(this.getFtlfon());
             this.panel.add(this.getBaslık());
             this.panel.add(this.getGrs());
-            
+            try {
+                this.panel.add(this.getGeri());
+            } catch (IOException ex) {
+                Logger.getLogger(MüsteriWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             this.panel.setLayout(null);
@@ -43,6 +51,23 @@ public class MüsteriWindow implements costumPanel{
         return  panel;
     }
 
+    public JButton getGeri() throws IOException {
+        if(this.geri==null){
+            this.geri=new JButton("Geri");
+            this.geri.setBounds(705, 0, 95, 35);
+            this.geri.setFont(this.getFn());
+            this.geri.setBackground(Color.orange);
+            this.geri.addActionListener(new MüsteriWindowAction(this));
+            
+            
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+    
     public JLabel getBaslık() {
         if(this.baslık==null){
             this.baslık=new JLabel("Müşteri Giriş Ekranı");

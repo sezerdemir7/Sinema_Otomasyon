@@ -39,11 +39,11 @@ public class MüsteriProcessWindow implements costumPanel {
             this.panel.add(this.getBaslık());
             this.panel.add(this.getLkoltuk());
             this.panel.add(this.getBilet());
-            try {
-                this.panel.add(this.getAnasayfa());
-            } catch (IOException ex) {
-                Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                this.panel.add(this.getAnasayfa());
+//            } catch (IOException ex) {
+//                Logger.getLogger(MüsteriProcessWindow.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             try {
                 this.panel.add(this.getGeri());
             } catch (IOException ex) {
@@ -137,7 +137,7 @@ public class MüsteriProcessWindow implements costumPanel {
     public JButton getGeri() throws IOException {
         if(this.geri==null){
             this.geri=new JButton("Geri");
-            this.geri.setBounds(715, 0, 85, 25);
+            this.geri.setBounds(715, 0, 85, 35);
             this.geri.setFont(this.getFn());
             this.geri.setBackground(Color.orange);
             this.geri.addActionListener(new MüsteriProcessAction(this));

@@ -16,7 +16,7 @@ public class YöneticiProcessWindow implements costumPanel {
     private JPanel panel;
     private JLabel baslık;
     private JButton filmEkle, remove, salonEkle, seansEkle, biletciEkle, geri;
-    private Font fn, fn2;
+    private Font fn, fn2,fn3;
 
     @Override
     public JPanel getPanel() {
@@ -59,7 +59,7 @@ public class YöneticiProcessWindow implements costumPanel {
         if (this.geri == null) {
             this.geri = new JButton("Geri");
             this.geri.setBounds(700, 0, 100, 35);
-            this.geri.setFont(this.getFn());
+            this.geri.setFont(this.getFn3());
             this.geri.setBackground(Color.orange);
             this.geri.addActionListener(new YöneticiProcessAction(this));
 
@@ -187,6 +187,19 @@ public class YöneticiProcessWindow implements costumPanel {
 
     public void setFn2(Font fn2) {
         this.fn2 = fn2;
+    }
+
+    public Font getFn3() {
+        if(this.fn3==null){
+            this.fn3=new Font("",Font.ROMAN_BASELINE,25); 
+            
+        
+        }
+        return fn3;
+    }
+
+    public void setFn3(Font fn3) {
+        this.fn3 = fn3;
     }
 
 }

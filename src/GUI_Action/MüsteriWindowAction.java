@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import DAO.müsteriDAO;
+import GUI.mainWindow;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +52,20 @@ public class MüsteriWindowAction implements ActionListener {
                 müw.getPanel().setVisible(true);
                 müw.getPanel().repaint();
             }
+        }
+        try {
+            if(e.getSource()==müw.getGeri()){
+                panel = new mainWindow();
+                
+                müw.getPanel().setVisible(false);
+                müw.getPanel().removeAll();
+                müw.getPanel().add(panel.getPanel());
+                müw.getPanel().setVisible(true);
+                müw.getPanel().repaint();
+            
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MüsteriWindowAction.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
