@@ -23,7 +23,7 @@ public class mainWindow implements costumPanel {
     private BiletciWindow bw;
     private MüsteriWindow müw;
     private mainWindow mw;
-    private ansayfa ana;
+    private anasayfa ana;
     Image mg = new ImageIcon(mainWindow.class.getResource("/admin2.png")).getImage();
     Image mg2 = new ImageIcon(mainWindow.class.getResource("/biletci.png")).getImage();
     Image mg3 = new ImageIcon(mainWindow.class.getResource("/musteri4.png")).getImage();
@@ -63,21 +63,20 @@ public class mainWindow implements costumPanel {
             yw = new YoneticiWindow();
             bw = new BiletciWindow();
             müw = new MüsteriWindow();
-            ana=new ansayfa();
+            ana = new anasayfa();
             this.tp = new JTabbedPane();
             this.tp.setBounds(0, 0, 800, 600);
             this.getPanel().removeAll();
             this.getPanel().setVisible(false);
             this.getPanel().setVisible(true);
             this.getPanel().repaint();
-            this.tp.add("AnaSayfa",ana.getPanel());
+            this.tp.add("AnaSayfa", ana.getPanel());
             this.tp.add("Giriş Seçenekleri", mw.getPanel());
 
-            this.tp.add("Yönetici Giriş", yw.getPanel());
-            this.tp.setBackground(Color.WHITE);
-            this.tp.add("Bilet Satış Danışmanı", bw.getPanel());
-            this.tp.add("Müşteri Girişi", müw.getPanel());
-            
+//            this.tp.add("Yönetici Giriş", yw.getPanel());
+//            this.tp.setBackground(Color.WHITE);
+//            this.tp.add("Bilet Satış Danışmanı", bw.getPanel());
+//            this.tp.add("Müşteri Girişi", müw.getPanel());
 
         }
         return tp;
@@ -101,56 +100,6 @@ public class mainWindow implements costumPanel {
         this.exit = exit;
     }
 
-//    public JMenuBar getMb() {
-//        if (this.mb == null) {
-//            this.mb = new JMenuBar();
-//            this.mb.setBounds(0, 0, 800, 25);
-//            this.mb.setVisible(true);
-//            this.mb.add(this.getItem2());
-//            this.mb.add(this.getItem1());
-//
-//        }
-//        return mb;
-//    }
-//
-//    public void setMb(JMenuBar mb) {
-//        this.mb = mb;
-//    }
-//
-//    public JMenu getItem1() {
-//        if (this.item1 == null) {
-//            item1 = new JMenu("EXİT");
-//            this.item1.setBounds(0, 0, 150, 20);
-//            this.item1.addActionListener(new MainWindowAction(this));
-//
-//        }
-//        return item1;
-//    }
-//
-//    public void setItem1(JMenu item1) {
-//        this.item1 = item1;
-//    }
-//
-//    public JMenu getItem2() {
-//        if (this.item2 == null) {
-//            this.item2 = new JMenu("Anasayfa");
-//            this.item2.setBounds(0, 0, 100, 20);
-//
-//        }
-//        return item2;
-//    }
-//
-//    public void setItem2(JMenu item2) {
-//        this.item2 = item2;
-//    }
-//
-//    public JMenu getItem3() {
-//        return item3;
-//    }
-//
-//    public void setItem3(JMenu item3) {
-//        this.item3 = item3;
-//    }
     /**
      *
      * @return
@@ -219,8 +168,8 @@ public class mainWindow implements costumPanel {
 
     public JButton getBtnYntc() {
         if (this.btnYntc == null) {
-             this.btnYntc = new JButton("Yönetici Girişi");
-           
+            this.btnYntc = new JButton("Yönetici Girişi");
+
             this.btnYntc.setBounds(93, 320, 120, 40);
             this.btnYntc.setBackground(Color.orange);
             this.btnYntc.addActionListener(new MainWindowAction(this));
