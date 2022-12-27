@@ -5,6 +5,7 @@
 package GUI_Action;
 
 import Controller.SalonEkleWindowController;
+import DAO.DAO_Abstract;
 import GUI.SalonEkleWindow;
 
 import GUI.costumPanel;
@@ -25,7 +26,7 @@ public class SalonEkleWindowAction implements ActionListener {
     private costumPanel panel;
     private SalonEkleWindow sew;
     private salonInfo s1;
-    private SalonDAO sd;
+    private DAO_Abstract sd;
     private SalonEkleWindowController sewc;
 
     public SalonEkleWindowAction(SalonEkleWindow sew) throws IOException {

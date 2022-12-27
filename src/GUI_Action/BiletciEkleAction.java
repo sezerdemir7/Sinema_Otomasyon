@@ -3,6 +3,7 @@ package GUI_Action;
 
 import Controller.BiletciEkleWindowController;
 import DAO.BiletciDAO;
+import DAO.DAO_Abstract;
 import Entity.biletciInfo;
 import GUI.BiletciEkleWindow;
 import GUI.YöneticiProcessWindow;
@@ -20,7 +21,7 @@ public class BiletciEkleAction implements ActionListener{
     private costumPanel panel;
     private BiletciEkleWindow bew;
     private BiletciEkleWindowController bewc;
-    private BiletciDAO bltdao;
+    private DAO_Abstract bltdao;
     private biletciInfo bltc;
 
     public BiletciEkleAction(BiletciEkleWindow bew) {

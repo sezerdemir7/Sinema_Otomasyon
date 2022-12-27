@@ -24,7 +24,7 @@ public class FilmEkleWindowAction implements ActionListener {
 
     public FilmEkleWindowAction(FilmEkleWindow few) {
         fec = new FilmEkleController();
-        film = new filmDAO();//polmorphism
+        film = new filmDAO();//plmrp
         f1 = new filmInfo();
 
         this.few = few;
