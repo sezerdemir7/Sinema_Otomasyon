@@ -35,7 +35,7 @@ public class YöneticiProcessAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ypw.getFilmEkle()) {
 
-            panel = new FilmEkleWindow();
+            panel = new FilmEkleWindow();//plmr
             ypw.getPanel().setVisible(false);
             ypw.getPanel().removeAll();
             ypw.getPanel().add(panel.getPanel());
@@ -75,7 +75,6 @@ public class YöneticiProcessAction implements ActionListener {
             ypw.getPanel().add(panel.getPanel());
             ypw.getPanel().setVisible(true);
             ypw.getPanel().repaint();
-
 
         }
         if (e.getSource() == ypw.getBiletciEkle()) {

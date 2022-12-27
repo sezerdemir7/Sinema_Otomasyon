@@ -21,8 +21,7 @@ public abstract class DAO_Abstract {
     }
 
     public String[] listele(String dosya) throws IOException {
-//        ArrayList list=new ArrayList();
-        // ArrayList liste2=new ArrayList();
+
         File f = new File(dosya);
         if (!f.exists()) {
             f.createNewFile();
@@ -34,9 +33,6 @@ public abstract class DAO_Abstract {
             line = line + str;
         }
         String[] liste = line.split("&");
-//        for(String a: liste){
-//            System.out.println(a);
-//        }
 
         return liste;
     }
@@ -56,11 +52,11 @@ public abstract class DAO_Abstract {
         String line = "", tempLine = "";
 
         while ((line = bfr.readLine()) != null) {
-            //System.out.println(line);
+
             if (!line.equals(str)) {
                 tempLine = tempLine + line;
                 list.add(line);
-                  
+
             }
 
         }
@@ -69,41 +65,38 @@ public abstract class DAO_Abstract {
         writer.close();
 
         for (int i = 0; i < list.size(); i++) {
-            // System.out.println(list.get(i));
+
             bfw.write((String) list.get(i));
             bfw.newLine();
         }
         bfw.close();
-        //System.out.println(tempLine);
 
         String[] liste = tempLine.split("&");
 
         return liste;
 
     }
-    
-    
-    public boolean sifreKontrol(String dosya,String str) throws IOException{
-        
-        File f = new File(dosya);
-        if (!f.exists()) {
-            f.createNewFile();
-        }
-        FileReader fr = new FileReader(f);
-        BufferedReader br = new BufferedReader(fr);
-        
-        
-        str=str+"&";
-        String templine="";
-        
-        while((templine=br.readLine())!=null){
-            if(templine.contains(str)){
-                return true;
-            }
-        }
-        br.close();
-        return false;
-        
-    }
+
+//    public boolean sifreKontrol(String dosya, String str) throws IOException {
+//
+//        File f = new File(dosya);
+//        if (!f.exists()) {
+//            f.createNewFile();
+//        }
+//        FileReader fr = new FileReader(f);
+//        BufferedReader br = new BufferedReader(fr);
+//
+//        str = str + "&";
+//        String templine = "";
+//
+//        while ((templine = br.readLine()) != null) {
+//            if (templine.contains(str)) {
+//                return true;
+//            }
+//        }
+//        br.close();
+//        return false;
+//
+//    }
 
 }

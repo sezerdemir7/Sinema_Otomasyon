@@ -16,7 +16,7 @@ public class YöneticiProcessWindow implements costumPanel {
     private JPanel panel;
     private JLabel baslık;
     private JButton filmEkle, remove, salonEkle, seansEkle, biletciEkle, geri;
-    private Font fn, fn2,fn3;
+    private Font fn, fn2, fn3;
 
     @Override
     public JPanel getPanel() {
@@ -28,7 +28,7 @@ public class YöneticiProcessWindow implements costumPanel {
             this.panel.add(this.getFilmEkle());
             this.panel.add(this.getFilmSil());
             this.panel.add(this.getSeansEkle());
-           this.panel.add(this.getGeri());
+            this.panel.add(this.getGeri());
             this.panel.add(this.getSalonEkle());
             this.panel.add(this.getBiletciEkle());
             this.panel.setBackground(Color.GRAY);
@@ -55,7 +55,7 @@ public class YöneticiProcessWindow implements costumPanel {
         this.biletciEkle = biletciEkle;
     }
 
-    public JButton getGeri()  {
+    public JButton getGeri() {
         if (this.geri == null) {
             this.geri = new JButton("Geri");
             this.geri.setBounds(700, 0, 100, 35);
@@ -135,21 +135,6 @@ public class YöneticiProcessWindow implements costumPanel {
         this.seansEkle = seansEkle;
     }
 
-//    public JButton getSeansSil() {
-//        if(this.seansSil==null){
-//            seansSil=new JButton("Seans Sil");
-//            this.seansSil.setBounds(450, 250, 200, 50);
-//            this.seansSil.setBackground(Color.GREEN);
-//            this.seansSil.setForeground(Color.white);
-//            this.seansSil.setFont(this.getFn());
-//        }
-//        return seansSil;
-//    }
-//
-//    public void setSeansSil(JButton seansSil) {
-//        
-//        this.seansSil = seansSil;
-//    }
     public JLabel getBaslık() {
         if (this.baslık == null) {
             baslık = new JLabel("Yönetici İşlemleri");
@@ -190,10 +175,9 @@ public class YöneticiProcessWindow implements costumPanel {
     }
 
     public Font getFn3() {
-        if(this.fn3==null){
-            this.fn3=new Font("",Font.ROMAN_BASELINE,25); 
-            
-        
+        if (this.fn3 == null) {
+            this.fn3 = new Font("", Font.ROMAN_BASELINE, 25);
+
         }
         return fn3;
     }

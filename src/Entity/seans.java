@@ -1,12 +1,9 @@
-
 package Entity;
 
-
-
-
 public class seans {
+
     private String film;
-    private String tarih,saat;
+    private String tarih, saat;
     private String ucret;
     private String salon;
 
@@ -52,10 +49,7 @@ public class seans {
 
     @Override
     public String toString() {
-        return  film + " " +  tarih+ " " + saat  + " " + ucret + "TL " + salon + '&';
+        return film + " " + tarih + " " + saat + " " + ucret + "TL " + salon + '&';
     }
-    
-    
-    
-   
+
 }

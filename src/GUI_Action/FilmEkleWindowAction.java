@@ -1,6 +1,7 @@
 package GUI_Action;
 
 import Controller.FilmEkleController;
+import DAO.DAO_Abstract;
 import DAO.filmDAO;
 import Entity.filmInfo;
 import GUI.FilmEkleWindow;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
 
 public class FilmEkleWindowAction implements ActionListener {
 
-    private filmDAO film;
+    private DAO_Abstract film;
     private FilmEkleWindow few;
     private filmInfo f1;
     private costumPanel panel;
@@ -23,7 +24,7 @@ public class FilmEkleWindowAction implements ActionListener {
 
     public FilmEkleWindowAction(FilmEkleWindow few) {
         fec = new FilmEkleController();
-        film = new filmDAO();
+        film = new filmDAO();//polmorphism
         f1 = new filmInfo();
 
         this.few = few;

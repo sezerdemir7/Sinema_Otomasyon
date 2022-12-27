@@ -37,7 +37,7 @@ public class MüsteriProcessAction implements ActionListener {
         if (e.getSource() == mpw.getBilet()) {
 
             try {
-                if (mwc.control(mpw) == false) {//müsteri window controller
+                if (mwc.control(mpw) == true) {//müsteri window controller
                     JOptionPane.showMessageDialog(mpw.getPanel(), "Lütfen Bir Seans Ve Koltuk No Seçiniz");
 
                 } else {

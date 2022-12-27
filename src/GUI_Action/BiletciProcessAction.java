@@ -30,7 +30,7 @@ public class BiletciProcessAction implements ActionListener {
         if (e.getSource() == bpw.getGiris()) {
 
             try {
-                if (bpcontrol.control(bpw) == true) {
+                if (bpcontrol.control(bpw) == true&&bpcontrol.controlkoltuk(bpw)==true) {
                     for (int j = 0; j < bpw.getButons().length; j++) {
                         if (bpw.getButons()[j].getBackground() == Color.red) {
                             String a = bpw.getMüsteriisim().getText();
@@ -38,7 +38,7 @@ public class BiletciProcessAction implements ActionListener {
                         }
                     }
                 } else {
-                    JOptionPane.showMessageDialog(bpw.getPanel(), "Müşteri İsmi Girin, Seans ve Koltuk Seçiniz!!");
+                    JOptionPane.showMessageDialog(bpw.getPanel(), "Müşteri ismi girin, Seans ve Koltuk  Seçiniz!!");
 
                 }
             } catch (IOException ex) {
@@ -46,14 +46,14 @@ public class BiletciProcessAction implements ActionListener {
             }
         }
 
-        int sayac = 0;
-        for (int i = 0; i < bpw.getButons().length; i++) {
-            if (bpw.getButons()[i].getBackground() == Color.red) {
-                sayac++;
-            }
-        }
-
-        if (sayac == 0) {
+//        int sayac = 0;
+//        for (int i = 0; i < bpw.getButons().length; i++) {
+//            if (bpw.getButons()[i].getBackground() == Color.red) {
+//                sayac++;
+//            }
+//        }
+//
+//        if (sayac == 0) {
 
             for (int i = 0; i < bpw.getButons().length; i++) {
 
@@ -81,7 +81,7 @@ public class BiletciProcessAction implements ActionListener {
                     Logger.getLogger(BiletciProcessAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
+       // }
         
         
         if(e.getSource()==bpw.getYenile()){
